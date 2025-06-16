@@ -1,0 +1,16 @@
+<div class="w-layout-blockcontainer container w-container"><div class="row row-between"><div class="col col-lg-4 col-md-6 col-sm-12"><div class="u-d-flex cc-vertical cc-stretch-between cc-gap-24"><h1>
+{{ section.settings.text_headline }}
+</h1>
+<div li-object="page.content" class="rich-text u-color-secondary w-richtext">{{ page.content }}</div></div></div><div class="col col-lg-4 col-md-6 col-sm-12"><div class="w-form">{% form 'contact', return_to: '{{ page.url }}#form', class: 'form' %}
+<div><label for="contact[name]" class="input-label">Name</label><input class="input w-input" maxlength="256" name="contact[name]" data-name="contact[name]" placeholder="Bruce Tripp" type="text" id="contact[name]" required="">
+</div><div class="input-group"><label for="contact[email]" class="input-label">Email Address</label><input class="input w-input" maxlength="256" name="contact[email]" data-name="contact[email]" placeholder="youremail@website.com" type="email" id="contact[email]" required="">
+</div><div class="input-group"><label for="contact[body]" class="input-label">Your Message To Us</label><textarea class="input cc-textarea w-input" maxlength="5000" name="contact[body]" data-name="contact[body]" placeholder="What's up?" id="contact[body]" required=""></textarea></div><input type="submit" data-wait="Please wait..." class="btn w-button" value="Submit">
+{% endform %}
+{% if form.posted_successfully %}    <div li-if="form.posted_successfully" class="form-success w-form-done">
+    <div class="u-d-flex cc-vertical cc-gap-24"><h2>Thanks for contacting us.</h2><div class="u-color-secondary">We’ll get back to you as soon as possible. Okay, back to shopping for now.</div><a li-object:href="routes.root_url" href="{{ routes.root_url }}" class="btn w-inline-block"><div>Shop All</div></a></div>    </div>
+{% endif %}{% if form.errors %}    <div li-if="form.errors" class="w-form-fail">
+    {% for error in form.errors %}    <div li-for="error in form.errors">
+                                    Oops! Something went wrong while submitting the form.
+                        </div>
+{% endfor %}    </div>
+{% endif %}</div></div></div></div> {% schema %} {"tag":"section","name":"Contact","class":"section","settings":[{"id":"text_headline","type":"text","label":"Headline","default":"Contact"}],"presets":[{"name":"Contact","category":"Liquify","blocks":[]}]} {% endschema %}

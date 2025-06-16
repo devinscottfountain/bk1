@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "product_hero": {
+            "type": "product_hero"
+        },
+        "product_worn_with": {
+            "type": "product_worn_with"
+        }
+    },
+    "layout": "product",
+    "wrapper": "main.page-main",
+    "order": [
+        "product_hero",
+        "product_worn_with"
+    ]
+}
