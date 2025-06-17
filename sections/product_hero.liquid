@@ -13,7 +13,7 @@
                             
                         </div>
 {% endfor %}    </div>
-{% endif %}<div class="u-d-flex cc-vertical cc-gap-8">{% if add-to-cart %}    <a li-if="product.selected_or_first_available_variant.available = true" li-element="add-to-cart" href="#" class="btn u-w-100 w-button">
+{% endif %}<div class="u-d-flex cc-vertical cc-gap-8">{% if add-to-cart %}    <a li-if="product.selected_or_first_available_variant.available == true" li-element="add-to-cart" href="#" class="btn u-w-100 w-button">
     Add to Cart    </a>
 {% endif %}{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true">
     <a href="#" class="btn cc-disabled u-w-100 w-button">Out of Stock</a>    </div>
