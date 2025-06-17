@@ -2,17 +2,14 @@
     <h2 li-object="product.compare_at_price | money" class="h6 u-color-tertiary u-style-strikethrough">{{ product.compare_at_price | money }}</h2>    </div>
 {% endif %}<h2 li-object="product.price | money" class="{% if product.compare_at_price > product.price %}u-color-sale{% else %}u-color-secondary{% endif %}">{{ product.price | money }}</h2></div></div><p li-object="product.description" class="u-color-secondary">{{ product.description }}</p></div><form>{% form 'product', product %}
 {% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-list">
-    {% for product-options-loop %}    <div li-for="option in product.options_with_values" li-element="product-options-loop" class="product-header_option">
-                                    
-                            <div class="product-header_radio-list">{% for product-option-loop %}    <div li-for="value in option.values" li-element="product-option-loop" class="product-header_radio">
+    <template x-for="(option, optionKey) in product.options" :key="optionKey">
+    <div li-element="product-options-loop" class="product-header_option" data-ProductVariantsLoop="true"><div li-element="product-options-name" class="product-header_radio-list" x-text="option"></div><div class="product-header_radio-list">{% for product-option-loop %}    <div li-for="value in option.values" li-element="product-option-loop" class="product-header_radio">
                                     <input type="radio" li-element="product-option-input" li-object:value="value" li-object:id="value" class="product-header_radio-button" x-on:click="setVariant" :name="option" :data-name="option" :value="variantName" :id="variantName.toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim().replace(/\s+/g, '-').replace(/[^\w-]+/g, '').replace(/--+/g, '-')" :checked="selected_or_first_available_variant?.options.includes(variantName)" data-selectorType="radio" :class="firstOptionHasAvailableChildren[variantName] ? '' : 'data-disabled'" value="value" id="value">
 
                             <label li-element="product-option-name" li-object:for="value" li-object="value" class="product-header_radio-label detail" x-text="variantName" :for="variantName" for="value">XXL</label>
                         </div>
-{% endfor %}</div>
-                            
-                        </div>
-{% endfor %}    </div>
+{% endfor %}</div></div></template>
+    </div>
 {% endif %}<div class="u-d-flex cc-vertical cc-gap-8">{% if add-to-cart %}    <a li-if="product.selected_or_first_available_variant.available == true" li-element="add-to-cart" href="#" class="btn u-w-100 w-button">
     Add to Cart    </a>
 {% endif %}{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true">
