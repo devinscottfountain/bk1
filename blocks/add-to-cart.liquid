@@ -1,0 +1,37 @@
+<div li-block="Add to Cart">
+                    
+                    <div class="product-header_form-block w-form">{% form 'product', product, class: 'product-header_default-state' %}
+<div class="product-header_add-to-cart-wrapper">{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-list">
+    <div li-for:inside="option in product.options_with_values">
+        {% for option in product.options_with_values %}                            
+                            {% unless option == 'Color' %}    <div li-unless="option == 'Color'" class="product-header_option">
+    <div li-object="option.name | escape">{{ option.name | escape }}</div><div class="product-header_radio-list">{% for value in option.values %}    <label li-for="value in option.values" class="product-header_radio w-radio">
+                                    
+                            <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product-header_radio-button w-radio-input"></div>
+                            <input li-render-value="{{ product.url }}?section_id={{ section.id }}&variant={{ value.variant.id }}" name="{{ option.name | handleize }}" data-name="Radio 3" li-render-trigger="input" type="radio" id="radio-3" style="opacity:0;position:absolute;z-index:-1" value="{{ value.variant.id }}"  {% if option.selected_value == value %} checked='checked'{% endif %}{% unless value.available %} disabled='disabled'{% endunless %}>
+
+                            <span li-object="value" class="text-size-regular text-weight-semibold w-form-label" for="radio-3">{{ value }}</span>
+                            
+                        </label>
+{% endfor %}</div>    </div>
+{% endunless %}
+                            
+                    {% endfor %}    </div>
+    </div>
+{% endif %}<input class="form_input w-input" maxlength="256" name="properties[Note]" data-name="Field" placeholder="Note" type="text" id="field">
+{% if product.selected_or_first_available_variant.available == true %}    <div li-if="product.selected_or_first_available_variant.available == true" class="product-header_buy-wrappper">
+    <input class="form_input is-quantity w-input" maxlength="256" name="quantity-2" li-element="add-to-cart-quantity" data-name="Quantity 2" placeholder="1" type="number" id="quantity-2" required="" x-model="quantity">
+<a li-element="add-to-cart" href="#" class="button max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton"><span>
+{{ block.settings.text_add_to_cart }}
+</span>
+</a>    </div>
+{% endif %}{% if product.selected_or_first_available_variant.available == false %}    <div li-if="product.selected_or_first_available_variant.available == false" class="product-header_out-of-stock">
+    <a href="#" class="button is-secondary max-width-full pointer-events-off w-button" href="#">
+{{ block.settings.text_not_in_stock }}
+</a>
+    </div>
+{% endif %}</div>{% endform %}
+<div class="hide w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="hide w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div>
+                    
+                </div>
+     {% schema %} {"name":"Add to Cart","settings":[{"id":"text_add_to_cart","type":"text","label":"Add to Cart","default":"Add to cart"},{"id":"text_not_in_stock","type":"text","label":"Not in Stock","default":"Not in Stock"}],"presets":[{"name":"Add to Cart"}]} {% endschema %}
