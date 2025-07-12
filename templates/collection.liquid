@@ -1,0 +1,145 @@
+{% layout 'collection' %}
+<div class="page-wrapper"><div class="global_custom"><div class="global_style w-embed"><style>:root {
+    /* Custom variables go here. */
+    interpolate-size: allow-keywords;
+  }
+  button {
+    padding: 0;
+    background: none;
+  }
+  textarea {
+    field-sizing: content;
+  }
+  /* Remove top margin on rich text first child */
+  .w-richtext>:first-child {
+    margin-top: 0;
+  }
+  /* Remove bottom margin of rich text last child */
+  .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+    margin-bottom: 0;
+  }
+  :is(h1, h2, h3, h4, h5, h6, p) a:not([class]) {
+    text-decoration: underline;
+  }
+  video {
+    width: 100%;
+    object-fit: cover;
+  }
+  video.wf-empty {
+    padding: 0;
+  }
+  /* Hide an object on the canvas but keep it's order in the DOM. Great for making an invisible space in a grid or flexbox. */
+  .u-invisible {
+    visibility: hidden;
+  }
+  /* Applies line clamping to the .u-tlc class */
+  .u-clamp {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    &.cc-2 {
+      -webkit-line-clamp: 2;
+    }
+    &.cc-3 {
+      -webkit-line-clamp: 3;
+    }
+  }
+  @keyframes navstar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .nav_star .u-icon {
+  animation: navstar 8s infinite linear;
+  }
+  .mini-cart_item:last-child {
+    border-bottom: none;
+  }
+  /* Changes the color of the default Webflow lightbox color */
+  .w-lightbox-backdrop {
+    background:  rgba(10, 2, 122, 0.8) !important;
+  }
+  .product-header_radio-button:checked {
+    background-color: var(--_colors---interface--primary);
+    & + label {
+      color: var(--_colors---interface--primary-invert)
+    }
+  }
+  /* Desktop (992px and above) */
+  @media screen and (min-width: 992px) {
+    .u-md-only, .u-sm-only, .u-xs-only {
+      display: none;
+    }
+  }
+  /* Tablet (768px to 991px) */
+  @media screen and (min-width: 768px) and (max-width: 991px) {
+    .u-sm-only, .u-xs-only, .u-lg-only {
+      display: none;
+    }
+  }
+  /* Mobile Landscape (480px to 767px) */
+  @media screen and (min-width: 480px) and (max-width: 767px) {
+    .u-lg-only, .u-md-only, .u-xs-only {
+      display: none;
+    }
+  }
+  /* Mobile Portrait (up to 479px) */
+  @media screen and (max-width: 479px) {
+    .u-lg-only, .u-md-only, .u-sm-only {
+      display: none;
+    }
+  }
+</style></div><div class="global_responsive w-embed"><style>/* Tablet */
+  @media screen and (max-width: 991px) {
+  }
+  /* Mobile Landscape */
+  @media screen and (max-width: 767px) {
+  }
+  /* Mobile Portrait */
+  @media screen and (max-width: 479px) {
+  }
+  /* Hover effects media query where hover effects only work on devices that CAN hover */
+  @media (hover: hover) {
+    ::-webkit-scrollbar {
+      display: none;
+      height: 0;
+      width: 0;
+    }
+    .product_item-link:hover {
+      .product_item-image.cc-alt {
+        opacity: 1;
+      }
+    }
+    .item_list-link .u-icon {
+        transition: 1.2s transform cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .item_list-link:hover .u-icon {
+      transform: rotate(-45deg);
+    }
+    .nav_main:has(.nav_link:hover) .nav_link:not(:hover) {
+      filter: blur(0.125rem);
+    }
+  }
+</style></div></div>{% section 'header' %}
+<div li-content-for-layout="" class="page-main" section-wrapper="div.page-main">{% section 'collection_products' %}
+</div></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=679aa5c0810431569f5e274a" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="{{ 'fount-system-b11418fe40d30df589b468bfa5.js' | asset_url }}" type="text/javascript"></script><script src="https://t1vjrg.csb.app/bk/global.js"></script><script>//sortierung
+  Shopify.queryParams = {};
+  // Preserve existing query parameters
+  if (location.search.length) {
+    var params = location.search.substr(1).split('&');
+    for (var i = 0; i < params.length; i++) {
+      var keyValue = params[i].split('=');
+      if (keyValue.length) {
+        Shopify.queryParams[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
+      }
+    }
+  }
+  // Update sort_by query parameter on select change
+  document.querySelector('#sort-by').addEventListener('change', function(e) {
+    var value = e.target.value;
+    Shopify.queryParams.sort_by = value;
+    location.search = new URLSearchParams(Shopify.queryParams).toString();
+  });
+</script>
