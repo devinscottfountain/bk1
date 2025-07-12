@@ -1,21 +1,61 @@
-<div class="w-layout-blockcontainer container w-container"><div class="row"><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">Collections</h2>{% for link in linklists['footer-collections'].links %}    <ul li-for="link in linklists['footer-collections'].links" role="list" class="nav_list u-d-flex cc-gap-default w-list-unstyled">
+<div class="padding-global padding-section-small"><div class="container-large"><div class="footer_main-wrapper"><div class="footer_link-grid">{% for link in linklists[section.settings.footer_menu].links %}    <div li-for="link in linklists[section.settings.footer_menu].links" class="footer_link-column">
                                     
-                            <li class="nav_list-item"><a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="h3">{{ link.title }}</a></li>
+                            <div li-object="link.title" class="text-weight-semibold">{{ link.title }}</div>
                             
-                        </ul>
-{% endfor %}</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">Company</h2>{% for link in linklists['footer-company'].links %}    <ul li-for="link in linklists['footer-company'].links" role="list" class="nav_list u-d-flex cc-gap-default w-list-unstyled">
-                                    
-                            <li class="nav_list-item"><a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="h3">{{ link.title }}</a></li>
+                            <div li-for:inside="child_link in link.links" class="footer_link-list">
+        {% for child_link in link.links %}                            
+                            <a li-object:href="child_link.url" li-object="child_link.title" href="{{ child_link.url }}" class="footer_link">{{ child_link.title }}</a>
                             
-                        </ul>
-{% endfor %}</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">More</h2>{% for link in linklists['footer-more'].links %}    <ul li-for="link in linklists['footer-more'].links" role="list" class="nav_list u-d-flex cc-gap-default w-list-unstyled">
-                                    
-                            <li class="nav_list-item"><a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="h3">{{ link.title }}</a></li>
+                    {% endfor %}    </div>
+
                             
-                        </ul>
-{% endfor %}</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">Social</h2>{% for link in linklists['footer-social'].links %}    <ul li-for="link in linklists['footer-social'].links" role="list" class="nav_list u-d-flex cc-gap-default w-list-unstyled">
-                                    
-                            <li class="nav_list-item"><a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="h3">{{ link.title }}</a></li>
+                        </div>
+{% endfor %}</div><div id="w-node-_5eccf730-c887-5204-0e0c-693f99a7329a-99a7328f" class="footer_newsletter"><h2 class="heading-style-h2">
+{{ section.settings.text_heading }}
+</h2>
+<div class="footer_form-block w-form">{% form 'customer', return_to: '/', class: 'footer_form' %}
+<div class="form_field-wrapper"><label for="email-2" class="form_hidden-label">Your E-Mail-Address</label><input class="form_input w-input" maxlength="256" name="contact[email]" data-name="Email 2" placeholder="{{ section.settings.placeholder_text }}" type="email" id="email-2" required="">
+</div><div li-object="form.errors | default_errors" class="text-size-tiny text-color-red">{{ form.errors | default_errors }}</div><div id="w-node-_5eccf730-c887-5204-0e0c-693f99a732a5-99a7328f" class="hide w-embed"><input type="hidden" name="contact[accepts_marketing]" value="false">
+</div><label id="w-node-_5eccf730-c887-5204-0e0c-693f99a732a6-99a7328f" class="w-checkbox form_checkbox" name="contact[accepts_marketing]"><input type="checkbox" name="Accepts-Marketing-2" id="Accepts-Marketing-2" data-name="Accepts Marketing 2" class="w-checkbox-input form_checkbox-icon">
+<span class="form_checkbox-label text-size-tiny w-form-label" for="Accepts-Marketing-2">
+{{ section.settings.text_checkbox }}
+</span>
+</label><input type="submit" data-wait="" id="w-node-_5eccf730-c887-5204-0e0c-693f99a732ae-99a7328f" class="button w-button" value="Subscribe to Newsletter">
+{% endform %}
+<div class="hide w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="hide w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div></div></div><div class="padding-global padding-section-small"><div class="container-large"><div class="footer_sub-footer"><a href="{{ routes.root_url }}" li-object:href="routes.root_url" class="footer_logo-link w-inline-block"><img src="{{ section.settings.image_logo | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image_logo.alt }}" class="footer_logo">
+</a><div li-for:inside="link in linklists['footer'].links" id="w-node-_5eccf730-c887-5204-0e0c-693f99a732d3-99a7328f" class="footer_legal-links">
+        {% for link in linklists['footer'].links %}                            
+                            <a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="footer_legal-link">{{ link.title }}</a>
                             
-                        </ul>
-{% endfor %}</div></div></div></div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 1440 550" fill="none" class="footer_logo"><g clip-path="url(#clip0_895_2)"><path d="M-44.8752 808.195C-79.0617 808.195 -173.578 812.217 -232.901 812.217C-245.973 812.217 -251 810.206 -251 803.167C-251 795.123 -245.973 792.107 -232.901 792.107C-156.484 792.107 -114.254 770.992 -82.0782 666.421L77.7942 145.579C109.97 42.0137 90.8656 19.8929 14.4486 19.8929C0.371757 19.8929 -3.65021 17.882 -3.65021 9.83806C-3.65021 2.79963 0.371757 -0.216797 14.4486 -0.216797C73.7723 -0.216797 168.288 3.80516 202.475 3.80516H455.857C604.669 3.80516 682.092 59.1069 682.092 149.601C682.092 241.1 602.658 371.813 448.819 385.89C427.704 387.901 423.682 403.989 442.786 403.989C542.329 409.016 595.62 456.274 595.62 529.675C595.62 708.652 395.528 808.195 200.464 808.195H-44.8752ZM133.096 730.772C124.047 759.931 120.025 788.085 172.31 788.085C313.078 788.085 371.396 578.944 371.396 498.505C371.396 432.143 337.21 396.951 278.892 396.951C245.711 396.951 233.645 402.983 215.546 462.307L133.096 730.772ZM251.743 341.649C243.7 368.797 239.678 386.896 280.903 386.896C397.539 386.896 457.868 225.012 457.868 132.507C457.868 79.2167 438.764 23.9149 396.534 23.9149C372.402 23.9149 349.276 26.9314 335.199 71.1728L251.743 341.649Z" fill="currentColor"></path><path d="M1340.99 664.41C1366.12 769.986 1397.29 792.107 1443.55 792.107C1453.6 792.107 1456.62 794.118 1456.62 802.162C1456.62 809.2 1453.6 812.217 1443.55 812.217C1409.36 812.217 1371.15 808.195 1347.02 808.195H1212.28C1178.1 808.195 1083.58 812.217 1024.26 812.217C1011.19 812.217 1006.16 810.206 1006.16 803.167C1006.16 795.123 1011.19 792.107 1024.26 792.107C1100.68 792.107 1123.8 769.986 1100.68 663.405L1054.42 455.269C1047.38 425.104 1031.3 403.989 1016.21 403.989C998.115 403.989 981.022 415.049 964.934 462.307L902.594 666.421C870.419 770.992 883.49 792.107 944.825 792.107C955.885 792.107 958.901 794.118 958.901 802.162C958.901 809.2 955.885 812.217 944.825 812.217C897.567 812.217 821.15 808.195 794.002 808.195H698.48C664.294 808.195 569.778 812.217 510.454 812.217C497.383 812.217 492.355 810.206 492.355 803.167C492.355 795.123 497.383 792.107 510.454 792.107C586.871 792.107 629.102 770.992 661.277 666.421L821.15 145.579C853.325 42.0137 834.221 19.8929 757.804 19.8929C743.727 19.8929 739.705 17.882 739.705 9.83806C739.705 2.79963 743.727 -0.216797 757.804 -0.216797C817.128 -0.216797 911.644 3.80516 945.83 3.80516H1025.26C1059.45 3.80516 1153.97 -0.216797 1213.29 -0.216797C1226.36 -0.216797 1231.39 1.79415 1231.39 8.83259C1231.39 16.8764 1226.36 19.8929 1213.29 19.8929C1136.87 19.8929 1094.64 41.0082 1062.47 145.579L1005.15 332.599C992.083 375.835 993.088 390.918 1010.18 390.918C1024.26 390.918 1043.36 372.819 1067.49 354.72L1348.03 142.562C1381.21 117.425 1400.31 103.348 1405.34 87.2606C1414.39 58.1014 1364.11 19.8929 1272.61 19.8929C1261.55 19.8929 1255.52 15.871 1257.53 9.83806C1259.54 3.80516 1267.59 -0.216797 1278.65 -0.216797C1375.17 -0.216797 1428.46 3.80516 1486.78 3.80516H1506.89C1552.14 3.80516 1622.52 -0.216797 1685.87 -0.216797C1702.96 -0.216797 1710 1.79415 1710 8.83259C1710 16.8764 1702.96 19.8929 1685.87 19.8929C1600.4 19.8929 1528.01 28.9423 1440.53 94.299L1293.73 206.913C1264.57 230.04 1242.45 259.199 1256.53 315.506L1340.99 664.41Z" fill="currentColor"></path></g></svg> {% schema %} {"tag":"footer","name":"footer","class":"footer","presets":[{"name":"footer","category":"Liquify","blocks":[]}]} {% endschema %}
+                    {% endfor %}    </div>
+{% if localization.available_languages.size > 1 %}    <localization-form li-if="localization.available_languages.size > 1" class="li-lang_wrapper">
+    {% form 'localization', class: 'li-lang_form' %}
+<div data-hover="true" data-delay="500" class="li-lang_dropdown w-dropdown"><div lang="{{ language.iso_code }}" class="li-lang_dd-toggle w-dropdown-toggle"><div li-object="localization.language.endonym_name | capitalize">{{ localization.language.endonym_name | capitalize }}</div>{% if link.links.size > 0 %}    <div li-if="link.links.size > 0" class="li-lang_dd-toggle-icon w-embed">
+    <svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path></svg>    </div>
+{% endif %}</div><nav li-for:inside="language in localization.available_languages" class="li-lang_dd-list w-dropdown-list">
+        {% for language in localization.available_languages %}                            
+                            {% unless localization.language.iso_code == language.iso_code %}    <div li-unless="localization.language.iso_code == language.iso_code" class="li-lang_dd-list-item">
+    <a href="#" li-object="language.endonym_name | capitalize" lang="{{ language.iso_code }}" hreflang="{{ language.iso_code }}" data-value="{{ language.iso_code }}" class="li-lang_dd-link w-dropdown-link">{{ language.endonym_name | capitalize }}</a>    </div>
+{% endunless %}
+                            
+                    {% endfor %}    </nav>
+</div><input type="hidden" name="language_code" class="li-lang_hidden-input" value="{{ localization.language.iso_code }}">
+{% endform %}
+<div class="li-lang_script w-embed w-script"><script>class LocalizationForm extends HTMLElement {
+  constructor() {
+    super();
+    this.input = this.querySelector('input[name="language_code"], input[name="country_code"]');
+    this.querySelectorAll('a').forEach(item =>
+      item.addEventListener('click', this.onItemClick.bind(this))
+    );
+  }
+  onItemClick(event) {
+    event.preventDefault();
+    const form = this.querySelector('form');
+    this.input.value = event.currentTarget.dataset.value;
+    if (form) form.submit();
+  }
+}
+customElements.define('localization-form', LocalizationForm);
+</script></div>    </localization-form>
+{% endif %}</div></div></div> {% schema %} {"tag":"footer","name":"footer","class":"section_footer","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"Signup for Newsletter"},{"id":"text_checkbox","type":"text","label":"Checkbox","default":"By subscribing you agree to with our <a href=\"#\"><span>Privacy Policy<\/span><\/a> and provide consent to receive updates from our company."},{"id":"image_logo","type":"image_picker","label":"Logo"},{"type":"header","content":"Navigation"},{"type":"link_list","id":"menu","label":"Footer Menu","default":"footer"}],"presets":[{"name":"footer","category":"Liquify","blocks":[]}],"enabled_on":{"groups":["*"]}} {% endschema %}

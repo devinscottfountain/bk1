@@ -1,17 +1,18 @@
-<div class="w-layout-blockcontainer container w-container"><div class="row"><div class="col col-lg-6 col-sm-12"><h2>
-{{ section.settings.text_headline }}
+<div class="padding-global padding-section-medium"><div class="container-large">{% assign currentArticle = article.title %}
+<h2 class="heading-style-h2">
+{{ section.settings.text_heading }}
 </h2>
-</div><div class="col col-lg-6 col-sm-12"><div li-for:inside="article in blog.articles limit: 2" class="blog_list">
-        {% for article in blog.articles limit: 2 %}                            
-                            {% if article.title != currentArticle %}    <div li-if="article.title != currentArticle" class="blog_list-item">
-    <a li-object:href="article.url" href="{{ article.url }}" class="blog_item-link u-d-flex cc-vertical cc-gap-16 w-inline-block"><img class="u-aspect-3x4" src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" li-object:src="article.image | img_url: 'master'" loading="lazy" li-object:alt="article.image.alt" srcset="{{ 'visualelectric-2-p-500.jpeg' | asset_url }} 500w, {{ 'visualelectric-2-p-800.jpeg' | asset_url }} 800w, {{ 'visualelectric-2.jpeg' | asset_url }} 1024w">
-<h3 li-object="article.title" class="detail">{{ article.title }}</h3></a>    </div>
-{% endif %}
+<div class="spacer-medium"></div><div class="blog_list-wrapper w-dyn-list"><div li-for:inside="article in blog.articles limit: 3" role="list" class="blog_list w-dyn-items">
+        {% for article in blog.articles limit: 3 %}                            
+                            {% if article.title != currentArticle %}    <div li-if="article.title != currentArticle" role="listitem" class="blog_list-item w-dyn-item">
+    <a li-object:href="article.url" href="{{ article.url }}" class="blog_item-grid w-inline-block"><div id="w-node-c45bff24-6242-fee4-5061-f2f14b06a7be-4b06a7bd" class="blog_tags-wrapper"><img src="{{ article.image | image_url: width: 450 }}" loading="lazy" id="w-node-c45bff24-6242-fee4-5061-f2f14b06a7bf-4b06a7bd" li-object:src="article.image | image_url: width: 450" alt="{{ article.image.alt }}" li-object:alt="article.image.alt" class="blog_img">
+<div class="blog_tag-row">{% for tag in article.tags %}    <div li-for="tag in article.tags" class="blog_tag">
+                                    
+                            <div li-object="tag">{{ tag }}</div>
                             
-                            {% if article.title != currentArticle %}    <div li-if="article.title != currentArticle" class="blog_list-item">
-    <a li-object:href="article.url" href="{{ article.url }}" class="blog_item-link u-d-flex cc-vertical cc-gap-16 w-inline-block"><img class="u-aspect-3x4" src="{{ article.image | img_url: 'master' }}" alt="{{ article.image.alt }}" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" li-object:src="article.image | img_url: 'master'" loading="lazy" li-object:alt="article.image.alt" srcset="{{ 'visualelectric-2-p-500.jpeg' | asset_url }} 500w, {{ 'visualelectric-2-p-800.jpeg' | asset_url }} 800w, {{ 'visualelectric-2.jpeg' | asset_url }} 1024w">
-<h3 li-object="article.title" class="detail">{{ article.title }}</h3></a>    </div>
+                        </div>
+{% endfor %}</div></div><div id="w-node-_6b97875b-5fce-9f5a-43fd-5792b69faf23-4b06a7bd" class="spacer-small"></div><div class="blog_info-wrapper"><h3 li-object="article.title" class="heading-style-h3">{{ article.title }}</h3></div></a>    </div>
 {% endif %}
                             
                     {% endfor %}    </div>
-</div></div></div> {% schema %} {"tag":"section","name":"Related Articles","class":"section","settings":[{"id":"text_headline","type":"text","label":"Headline","default":"More Reading"}],"presets":[{"name":"Related Articles","category":"Liquify","blocks":[]}]} {% endschema %}
+<div class="hide w-dyn-empty"></div></div></div></div> {% schema %} {"tag":"section","name":"Related Articles","class":"section_related-articles","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"Other Articles"}],"presets":[{"name":"Related Articles","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["article"]}} {% endschema %}
