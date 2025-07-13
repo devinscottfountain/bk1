@@ -1,0 +1,30 @@
+<div li-block="Add to Cart">
+                    
+                    <form>{% form 'product', product %}
+{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-list">
+    <div li-for:inside="option in product.options_with_values">
+        {% for option in product.options_with_values %}                            
+                            {% unless option == 'Color' %}    <div li-unless="option == 'Color'" class="product-header_option">
+    <div class="product-header_radio-list">{% for value in option.values %}    <div li-for="value in option.values" class="product-header_radio">
+                                    <input type="radio" li-render-value="{{ product.url }}?section_id={{ section.id }}&variant={{ value.variant.id }}" li-render-trigger="input" class="product-header_radio-button"  {% if option.selected_value == value %} checked='checked'{% endif %}{% unless value.available %} disabled='disabled'{% endunless %} value="{{ value.variant.id }}" name="{{ option.name | handleize }}">
+
+                            <label li-object="value" class="product-header_radio-label detail">{{ value }}</label>
+                        </div>
+{% endfor %}</div>    </div>
+{% endunless %}
+                            
+                    {% endfor %}    </div>
+    </div>
+{% endif %}<div class="u-d-flex cc-vertical cc-gap-8"><a li-element="add-to-cart" li-if="product.selected_or_first_available_variant.available == true" href="#" class="btn u-w-100 w-button" href="#">
+{{ block.settings.text_add_to_cart }}
+</a>
+{% if product.selected_or_first_available_variant.available == false %}    <div li-if="product.selected_or_first_available_variant.available == false">
+    <a href="#" class="btn cc-disabled u-w-100 w-button" href="#">
+{{ block.settings.text_out_of_stock }}
+</a>
+    </div>
+{% endif %}<div class="w-embed">{% if shop.enabled_payment_types contains 'shop_pay' %}<button id="shop-pay-button" class="shopify-payment-button__button shopify-payment-button__button--branded">Buy with Shop Pay</button>{% endif %}</div></div>{% endform %}
+</form>
+                    
+                </div>
+     {% schema %} {"name":"Add to Cart","settings":[{"id":"text_add_to_cart","type":"text","label":"Add to Cart","default":"Add to Cart"},{"id":"text_out_of_stock","type":"text","label":"Out of Stock","default":"Out of Stock"}],"presets":[{"name":"Add to Cart"}]} {% endschema %}

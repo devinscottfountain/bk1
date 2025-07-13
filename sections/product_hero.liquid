@@ -1,0 +1,17 @@
+<div li-render="custom-wrapper" class="w-layout-blockcontainer container w-container"><script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="row" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div class="col col-lg-1 u-md-hide"></div><div class="col col-lg-4 col-md-6 col-sm-12"><div li-content-for-theme-blocks="" class="product_page-left u-d-flex cc-vertical cc-gap-48">
+{% content_for 'blocks' %}
+</div>
+</div><div class="col col-lg-1 u-md-hide col-sm-12"></div><div class="col col-lg-6 col-sm-12 col-sm-first"><div class="swiper"><div li-for:inside="media in product.media" class="swiper-wrapper">
+        {% for media in product.media %}                            
+                            {% if media.media_type == 'image' %}    <div li-if="media.media_type == 'image'" class="swiper-slide">
+    <img class="u-aspect-item" src="{{ media | image_url: width: 1000 }}" alt="{{ media.alt }}" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" li-object:src="media | image_url: width: 1000" loading="lazy" li-object:alt="media.alt" srcset="{{ 'visualelectric-2-p-500.jpeg' | asset_url }} 500w, {{ 'visualelectric-2-p-800.jpeg' | asset_url }} 800w, {{ 'visualelectric-2.jpeg' | asset_url }} 1024w">
+    </div>
+{% endif %}
+                            
+                            {% if media.media_type == 'video' %}    <div li-if="media.media_type == 'video'" class="swiper-slide">
+    <div li-object="media | video_tag: autoplay: true, loop: true, muted: true, controls: true" class="u-aspect-item">{{ media | video_tag: autoplay: true, loop: true, muted: true, controls: true }}</div>    </div>
+{% endif %}
+                            
+                    {% endfor %}    </div>
+</div></div></div></div> {% schema %} {"tag":"section","name":"Product Hero","class":"section","blocks":[{"type":"product-name"},{"type":"product-price"},{"type":"description"},{"type":"add-to-cart"},{"type":"@app"}],"presets":[{"name":"Product Hero","category":"Liquify","blocks":[{"type":"product-name"},{"type":"product-price"},{"type":"description"},{"type":"add-to-cart"}]}],"enabled_on":{"templates":["product"]}} {% endschema %}
