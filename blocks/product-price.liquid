@@ -4,7 +4,7 @@
     <h2 li-object="product.compare_at_price | money" class="h6 u-color-tertiary u-style-strikethrough">{{ product.compare_at_price | money }}</h2>    </div>
 {% endif %}
                     
-                    <h2 li-object="product.selected_or_first_available_variant.price | money" class="{% if product.compare_at_price > product.price %}u-color-sale{% else %}u-color-secondary{% endif %}">{{ product.selected_or_first_available_variant.price | money }}</h2>
+                    <h2 li-object="product.selected_or_first_available_variant.price | money" class="h6 u-color-secondary">{{ product.selected_or_first_available_variant.price | money }}</h2>
                     
                 </div>
      {% schema %} {"name":"Product Price","settings":[],"presets":[{"name":"Product Price"}]} {% endschema %}
