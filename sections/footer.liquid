@@ -1,19 +1,19 @@
-<div class="w-layout-blockcontainer container w-container"><div class="row"><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">Collections</h2><ul li-for:inside="link in linklists['footer-collections'].links" role="list" class="nav_list u-d-flex cc-gap-default w-list-unstyled">
+<div class="w-layout-blockcontainer container w-container"><div class="row"><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">Collections</h2><ul li-for:inside="link in linklists['footer-collections'].links" role="list" class="nav_list u-d-flex cc-vertical cc-gap-default w-list-unstyled">
         {% for link in linklists['footer-collections'].links %}                            
                             <li class="nav_list-item"><a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="h3">{{ link.title }}</a></li>
                             
                     {% endfor %}    </ul>
-</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 li-object="link.title" class="detail u-color-secondary">{{ link.title }}</h2><ul li-for:inside="link in linklists['footer-company'].links" role="list" class="nav_list u-d-flex cc-vertical cc-gap-default w-list-unstyled">
+</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">Company</h2><ul li-for:inside="link in linklists['footer-company'].links" role="list" class="nav_list u-d-flex cc-vertical cc-gap-default w-list-unstyled">
         {% for link in linklists['footer-company'].links %}                            
-                            <li class="nav_list-item"><a li-object="child_link.title" li-object:href="child_link.url" href="{{ child_link.url }}" class="h3">{{ child_link.title }}</a></li>
+                            <li class="nav_list-item"><a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="h3">{{ link.title }}</a></li>
                             
                     {% endfor %}    </ul>
-</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">More</h2><ul li-for:inside="link in linklists['footer-more'].links" role="list" class="nav_list u-d-flex cc-gap-default w-list-unstyled">
+</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">More</h2><ul li-for:inside="link in linklists['footer-more'].links" role="list" class="nav_list u-d-flex cc-vertical cc-gap-default w-list-unstyled">
         {% for link in linklists['footer-more'].links %}                            
                             <li class="nav_list-item"><a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="h3">{{ link.title }}</a></li>
                             
                     {% endfor %}    </ul>
-</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">Social</h2><ul li-for:inside="link in linklists['footer-social'].links" role="list" class="nav_list u-d-flex cc-gap-default w-list-unstyled">
+</div></div><div class="col"><div class="u-d-flex cc-vertical cc-gap-16"><h2 class="detail u-color-secondary">Social</h2><ul li-for:inside="link in linklists['footer-social'].links" role="list" class="nav_list u-d-flex cc-vertical cc-gap-default w-list-unstyled">
         {% for link in linklists['footer-social'].links %}                            
                             <li class="nav_list-item"><a li-object="link.title" li-object:href="link.url" href="{{ link.url }}" class="h3">{{ link.title }}</a></li>
                             
