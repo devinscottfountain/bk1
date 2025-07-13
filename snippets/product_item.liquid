@@ -4,9 +4,9 @@
 {% endif %}</div>{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true" class="product_item-scrim u-p-absolute cc-full u-d-flex cc-vertical cc-center-center u-events-none">
     <div class="u-p-absolute u-color-primary-invert">OUT OF STOCK</div>    </div>
 {% endif %}</div>{% if product.selected_or_first_available_variant.available == true %}    <div li-if="product.selected_or_first_available_variant.available == true">
-    <div class="u-d-flex cc-horizontal cc-gap-8">{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
+    <h2 li-object="product.title" class="detail">{{ product.title }}</h2><div class="u-d-flex cc-horizontal cc-gap-8">{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
     <h3 li-object="product.compare_at_price | money" class="detail u-color-tertiary u-style-strikethrough">{{ product.compare_at_price | money }}</h3>    </div>
-{% endif %}<h3 li-object="product.price | money" class="{% if product.compare_at_price > product.price %}u-color-sale{% else %}u-color-secondary{% endif %}">{{ product.price | money }}</h3></div><h2 li-object="product.title" class="detail">{{ product.title }}</h2>    </div>
+{% endif %}<h3 li-object="product.price | money" class="{% if product.compare_at_price > product.price %}u-color-sale{% else %}u-color-secondary{% endif %}">{{ product.price | money }}</h3></div>    </div>
 {% endif %}{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true">
     <h2 li-object="product.title" class="detail u-color-tertiary u-style-strikethrough">{{ product.title }}</h2><div class="u-d-flex cc-horizontal cc-gap-8"><h3 li-object="product.price | money" class="detail u-color-tertiary u-style-strikethrough">{{ product.price | money }}</h3></div>    </div>
 {% endif %}</a>
