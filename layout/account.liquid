@@ -1,5 +1,5 @@
 <!doctype html>
-<html data-wf-page="6871570346eec24a508fcfb2" data-wf-site="6871570346eec24a508fcf43" lang="{{ request.locale.iso_code }}"><head><meta charset="utf-8">
+<html data-wf-page="6871570346eec24a508fcfb7" data-wf-site="6871570346eec24a508fcf43" lang="{{ request.locale.iso_code }}"><head><meta charset="utf-8">
 <title>{{ page_title }}</title><meta content="{{ page_description }}" name="description">
 <meta content="{{ page_title }}" property="og:title">
 <meta content="{{ page_description }}" property="og:description">
@@ -109,8 +109,14 @@
     color: #FFFFFF;
     background: #000000;
   }
-</style><script src="{{ '_helper.js' | asset_url }}" type="text/javascript"></script>{{ content_for_header }}</head>
-<body>
+</style><!--  
+IMPORTANT: If you want to make changes to the head or body code on this page, 
+please remove the `li-layout` tag from the body element. 
+This will create a separate layout file for this page, allowing you to apply custom modifications.
+Learn more: https://www.liquify.pro/docu/getting-started#template-structure
+ -->
+<script src="{{ '_helper.js' | asset_url }}" type="text/javascript"></script>{{ content_for_header }}</head>
+<body li-page="account">
 
 <div class="page-wrapper">{% render 'global_styles' %}
 {% sections 'header_group' %}
