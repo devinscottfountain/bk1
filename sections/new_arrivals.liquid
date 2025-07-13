@@ -1,8 +1,0 @@
-<div class="w-layout-blockcontainer container w-container"><div class="row row-between row-center-vertical u-mb-2-5"><div class="col col-shrink"><h2>New Arrivals</h2></div></div><div class="row"><div class="col"><div class="product_list">{% for product in collection.products %}    <div li-for="product in collection.products">
-                                    
-                            <script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
-<div li-element="product-variant-container" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">{% render 'product_item' %}
-</div>
-                            
-                        </div>
-{% endfor %}</div></div></div><div class="row"><div class="col"></div></div></div> {% schema %} {"tag":"section","name":"new-arrivals","class":"section","presets":[{"name":"new-arrivals","category":"Liquify","blocks":[]}]} {% endschema %}
