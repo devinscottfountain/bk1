@@ -1,9 +1,0 @@
-{% if blog.articles != blank %}    <div li-if="blog.articles != blank" class="blog_list">
-    {% for article in blog.articles %}    <div li-for="article in blog.articles" class="blog_list-item">
-                                    
-                            <a li-object:href="article.url" href="{{ article.url }}" class="blog_item-link u-d-flex cc-vertical cc-gap-16 w-inline-block"><img class="u-aspect-3x4" src="{{ article.image | image_url: width: 450 }}" alt="{{ article.image.alt }}" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" li-object:src="article.image | image_url: width: 450" loading="lazy" li-object:alt="article.image.alt" srcset="{{ 'visualelectric-2-p-500.jpeg' | asset_url }} 500w, {{ 'visualelectric-2-p-800.jpeg' | asset_url }} 800w, {{ 'visualelectric-2.jpeg' | asset_url }} 1024w">
-<h3 li-object="article.title" class="detail">{{ article.title }}</h3></a>
-                            
-                        </div>
-{% endfor %}    </div>
-{% endif %} {% schema %} {"tag":"div","name":"Blog-Articles","class":"col col-lg-6 col-sm-12","presets":[{"name":"Blog-Articles","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["blog"]}} {% endschema %}
