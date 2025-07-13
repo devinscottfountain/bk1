@@ -1,7 +1,12 @@
 <!doctype html>
-<html data-wf-page="679edf93d768870c746194c6" data-wf-site="679aa5c0810431569f5e274a" lang="{{ request.locale.iso_code }}"><head><meta charset="utf-8">
-<title>{{ page_title }}</title><meta content="{{ page_title }}" property="og:title">
+<html data-wf-page="679edcc3878f40ec1135cf45" data-wf-site="679aa5c0810431569f5e274a" lang="{{ request.locale.iso_code }}"><head><meta charset="utf-8">
+<title>{{ page_title }}</title><meta content="{{ page_description }}" name="description">
+<meta content="{{ page_title }}" property="og:title">
+<meta content="{{ page_description }}" property="og:description">
 <meta content="{{ page_title }}" property="twitter:title">
+<meta content="{{ page_description }}" property="twitter:description">
+<meta property="og:type" content="website">
+<meta content="summary_large_image" name="twitter:card">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <link href="{{ 'normalize.css' | asset_url }}" rel="stylesheet" type="text/css">
 <link href="{{ 'components.css' | asset_url }}" rel="stylesheet" type="text/css">
@@ -50,7 +55,7 @@
     caret-color: var(--colors-all--primary);
   }
 </style><script defer="" auto="" min="" src="https://cdn.jsdelivr.net/gh/liquify-pro/core@latest/script.js"></script><script src="{{ '_helper.js' | asset_url }}" type="text/javascript"></script>{{ content_for_header }}</head>
-<body li-page="Terms">
+<body li-page="page">
 
 <div class="page-wrapper"><div class="global_custom"><div class="global_style w-embed"><style>:root {
     /* Custom variables go here. */
