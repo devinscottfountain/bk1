@@ -1,14 +1,8 @@
 <div li-block="Product Name">
                     
-                    <div class="u-vflex-stretch-to u-vgap-16"><div class="u-hflex-left-top u-hgap-8">{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true">
-    Out of Stock    </div>
-{% endif %}{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
-    On Sale    </div>
-{% endif %}</div><div class="u-hflex-between-center u-hgap-8"><h1 li-object:text="product.title">
+                    <h1 li-object:text="product.title" class="heading-style-h2">
 {{ product.title }}
-</h1><div class="u-hflex-right-center u-hgap-8"><div li-object="product.selected_or_first_available_variant.price | money">{{ product.selected_or_first_available_variant.price | money }}</div>{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
-    <div li-js-object="product.selected_or_first_available_variant.compare_at_price | money" class="u-style-strikethrough" x-text="product.selected_or_first_available_variant.compare_at_price | money">$14.99</div>    </div>
-{% endif %}</div></div></div>
+</h1>
                     
                 </div>
      {% schema %} {"name":"Product Name","settings":[],"presets":[{"name":"Product Name"}]} {% endschema %}

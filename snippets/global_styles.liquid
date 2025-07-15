@@ -1,62 +1,186 @@
-<style>:root {
-    /* Custom variables go here. */
-    interpolate-size: allow-keywords;
-  }
-  ::before, ::after {
-    box-sizing: border-box;
-  }
-  html {
-    background-color: var(--background--primary);
-  }
-  [li-cloak_disabled="hide"] { display: none !important; }
+<style>[li-cloak_disabled="hide"] { display: none !important; }
   [x-cloak] { display: none !important; }
-  textarea { field-sizing: content; }
-  section, header, footer, .page-main, .page-wrapper, .container {
-    position: relative;
+  html { font-size: calc(0.8125rem + 0.20833333333333331vw); }
+  @media screen and (max-width:1920px) { html { font-size: calc(0.8125rem + 0.20833333333333337vw); } }
+  @media screen and (max-width:1440px) { html { font-size: 1rem; } }
+  /* Make text look crisper and more legible in all browsers */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
-  /* Remove top margin on rich text first child */
-  .w-richtext>:first-child { margin-top: 0; }
-  /* Remove bottom margin of rich text last child */
-  .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child { margin-bottom: 0; }
-  a:not([class]) { text-decoration: underline; }
-  svg {
-    max-width: 100%;
+  /* Focus state style for keyboard navigation for the focusable elements */
+  *[tabindex]:focus-visible,
+  input[type="file"]:focus-visible {
+    outline: 0.125rem solid #4d65ff;
+    outline-offset: 0.125rem;
   }
-  img::selection {
-    background: transparent;
+  /* Get rid of top margin on first element in any rich text element */
+  .w-richtext > :not(div):first-child, .w-richtext > div:first-child > :first-child {
+    margin-top: 0 !important;
   }
-  video {
-    width: 100%;
-    object-fit: cover;
+  /* Get rid of bottom margin on last element in any rich text element */
+  .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+    margin-bottom: 0 !important;
   }
-  video.wf-empty {
-    padding: 0;
+  /* Prevent all click and hover interaction with an element */
+  .pointer-events-off {
+    pointer-events: none;
   }
-  /* Hide an object on the canvas but keep it's order in the DOM. Great for making an invisible space in a grid or flexbox. */
-  .u-invisible {
-    visibility: hidden;
+  /* Enables all click and hover interaction with an element */
+  .pointer-events-on {
+    pointer-events: auto;
   }
-  .u-clamp-1, .u-clamp-2, .u-clamp-3 {
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    -webkit-box-orient: vertical;
-    box-orient: vertical;
-    overflow: clip;
+  /* Create a class of .div-square which maintains a 1:1 dimension of a div */
+  .div-square::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  /* Make sure containers never lose their center alignment */
+  .container-medium,.container-small, .container-large {
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+  /* 
+  Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+  Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+  Uncomment this CSS to use it in the project. Leave this message for future hand-off.
+  */
+  /*
+  a,
+  .w-input,
+  .w-select,
+  .w-tab-link,
+  .w-nav-link,
+  .w-dropdown-btn,
+  .w-dropdown-toggle,
+  .w-dropdown-link {
+  color: inherit;
+  text-decoration: inherit;
+  font-size: inherit;
+  }
+  */
+  /* Apply "..." after 3 lines of text */
+  .text-style-3lines {
     display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
-  .u-clamp-2 { -webkit-line-clamp: 2; line-clamp: 2; }
-  .u-clamp-3 { -webkit-line-clamp: 3; line-clamp: 3; }
-  /* Changes the color of the default Webflow lightbox color */
-  .w-lightbox-backdrop {
-    background:  rgba(10, 2, 122, 0.8) !important;
+  /* Apply "..." after 2 lines of text */
+  .text-style-2lines {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
-  .w-checkbox-input--inputType-custom.w--redirected-focus,
-  .w-form-formradioinput--inputType-custom.w--redirected-focus {
-    box-shadow: none;
+  /* Adds inline flex display */
+  .display-inlineflex {
+    display: inline-flex;
   }
-  @media (prefers-color-scheme: light) {
-    option {
-      color: black;
+  /* These classes are never overwritten */
+  .hide {
+    display: none !important;
+  }
+  @media screen and (max-width: 991px) {
+    .hide, .hide-tablet {
+      display: none !important;
     }
+  }
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape{
+      display: none !important;
+    }
+  }
+  @media screen and (max-width: 479px) {
+    .hide-mobile{
+      display: none !important;
+    }
+  }
+  .margin-0 {
+    margin: 0rem !important;
+  }
+  .padding-0 {
+    padding: 0rem !important;
+  }
+  .spacing-clean {
+    padding: 0rem !important;
+    margin: 0rem !important;
+  }
+  .margin-top {
+    margin-right: 0rem !important;
+    margin-bottom: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-top {
+    padding-right: 0rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-right {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-right {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-bottom {
+    margin-top: 0rem !important;
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-bottom {
+    padding-top: 0rem !important;
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  .margin-left {
+    margin-top: 0rem !important;
+    margin-right: 0rem !important;
+    margin-bottom: 0rem !important;
+  }
+  .padding-left {
+    padding-top: 0rem !important;
+    padding-right: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+  .margin-horizontal {
+    margin-top: 0rem !important;
+    margin-bottom: 0rem !important;
+  }
+  .padding-horizontal {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+  }
+  .margin-vertical {
+    margin-right: 0rem !important;
+    margin-left: 0rem !important;
+  }
+  .padding-vertical {
+    padding-right: 0rem !important;
+    padding-left: 0rem !important;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance !important;
+  }
+  .page-wrapper {
+    overflow: clip !important;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+  .swiper-button-disabled {
+    opacity: 50% !important;
+    pointer-events: none !important;
+  }
+  button {
+  	color: inherit;
+    background-color: inherit;
+    padding: inherit;
   }
 </style>

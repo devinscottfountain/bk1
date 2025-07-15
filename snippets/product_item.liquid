@@ -1,8 +1,13 @@
-<div class="product-item_component u-vflex-stretch-top u-vgap-16"><div class="product-item_image-link u-p-relative"><a li-object:href="product.url" href="{{ product.url }}" class="u-w-100 w-inline-block"><img class="u-aspect-4x5" src="{{ product.featured_image | img_url: 'master' }}" alt="{{ product.featured_image.alt }}" sizes="(max-width: 767px) 100vw, (max-width: 991px) 728px, 940px" li-object:src="product.featured_image | img_url: 'master'" loading="lazy" li-object:alt="product.featured_image.alt" srcset="{{ 'hassaan-qaiser-bKfkhVRAJTQ-unsplash_1hassaan-qaiser-bKfkhVRAJTQ-unsplash.avif' | asset_url }} 500w, {{ 'hassaan-qaiser-bKfkhVRAJTQ-unsplash_1hassaan-qaiser-bKfkhVRAJTQ-unsplash.avif' | asset_url }} 2000w">
-</a>{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true">
-    <div>Sold Out</div>    </div>
-{% endif %}{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
-    On Sale    </div>
-{% endif %}</div><a li-object:href="product.url" href="{{ product.url }}" class="u-vflex-left-top u-vgap-4 w-inline-block"><h3 li-object="product.title">{{ product.title }}</h3><div class="u-hflex-left-top u-hgap-8">{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
-    <div li-object="product.compare_at_price | money" class="u-style-strikethrough">{{ product.compare_at_price | money }}</div>    </div>
-{% endif %}<div li-object="product.price | money">{{ product.price | money }}</div></div></a></div>
+<script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="product-item_component" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div class="product-item_image-link"><a li-object:href="product.url" href="{{ product.url }}" class="product-item_image-wrapper w-inline-block"><img li-object:alt="product.featured_image.alt" loading="lazy" li-object:src="product.featured_image | image_url: width: 450" src="{{ product.featured_image | image_url: width: 450 }}" alt="{{ product.featured_image.alt }}" class="product-item_image">
+</a><div class="product-item_tag_list">{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true" class="product-item_tag">
+    Not in Stock    </div>
+{% endif %}{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price" class="product-item_tag is-red">
+    Sale    </div>
+{% endif %}</div></div><div class="spacer-xxsmall"></div><a li-object:href="product.url" href="{{ product.url }}" class="product-item_text-link w-inline-block"><div class="product-item_left"><div li-object="product.vendor" class="text-size-small">{{ product.vendor }}</div><div li-object="product.title" class="heading-style-h4 text-weight-normal">{{ product.title }}</div></div><div class="product-item_price">{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
+    <div li-object="product.compare_at_price | money" class="text-size-regular text-style-strikethrough text-style-muted">{{ product.compare_at_price | money }}</div>    </div>
+{% endif %}<div li-object="product.price | money" class="text-size-regular">{{ product.price | money }}</div></div></a><div class="spacer-small"></div><div class="margin-top-auto"><div class="product-item_form-wrapper">{% if product.available == true %}    <div li-if="product.available == true">
+    <a li-element="add-to-cart" href="#" class="btn max-width-full w-button" @click="addToCart($event, true)" :disabled="!addToCartButton">Add to Cart</a>    </div>
+{% endif %}{% if product.available != true %}    <div li-if="product.available != true">
+    <a href="#" class="btn is-secondary pointer-events-off max-width-full w-button">Not in Stock</a>    </div>
+{% endif %}</div></div></div>

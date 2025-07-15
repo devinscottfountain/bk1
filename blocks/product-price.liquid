@@ -1,0 +1,14 @@
+<div li-block="Product Price">
+                    
+                    <div class="product-header_price-wrapper"><div li-object="product.selected_or_first_available_variant.price | money" class="text-size-large text-weight-bold">{{ product.selected_or_first_available_variant.price | money }}</div>{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+    <div li-js-object="product.selected_or_first_available_variant.compare_at_price | money" class="text-size-regular text-style-strikethrough text-align-right text-style-muted" x-text="product.selected_or_first_available_variant.compare_at_price | money">$55</div>    </div>
+{% endif %}<div class="product-header_tag-list">{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true" class="product-item_tag">
+    Not in Stock    </div>
+{% endif %}{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price" class="product-item_tag is-red">
+    Sale    </div>
+{% endif %}</div></div>
+                    
+                    <div class="text-size-small">inkl. VAT</div>
+                    
+                </div>
+     {% schema %} {"name":"Product Price","settings":[],"presets":[{"name":"Product Price"}]} {% endschema %}
