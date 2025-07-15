@@ -1,16 +1,36 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-    "sections": {
-        "site_hero": {
-            "type": "site_hero"
-        },
-        "featured_products": {
-            "type": "featured_products"
-        }
+  "sections": {
+    "site_hero": {
+      "type": "site_hero",
+      "settings": {
+        "text_left_text": "New Arrivals",
+        "text_heading": "New Arrivals",
+        "url_right_link": "shopify://collections/new-arrivals",
+        "text_right_text": "Shop All"
+      }
     },
-    "layout": "theme",
-    "wrapper": "main.page-main",
-    "order": [
-        "site_hero",
-        "featured_products"
-    ]
+    "featured_products": {
+      "type": "featured_products",
+      "settings": {
+        "text_heading": "New Arrivals",
+        "collection_collection": "new-arrivals",
+        "collection_collection_limit": 1
+      }
+    }
+  },
+  "layout": "theme",
+  "wrapper": "main.page-main",
+  "order": [
+    "site_hero",
+    "featured_products"
+  ]
 }
