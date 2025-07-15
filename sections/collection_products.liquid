@@ -1,4 +1,4 @@
-{% paginate collection.products by 40 %}
+<div class="w-layout-blockcontainer container w-container"><div class="row u-vgap-40"><div class="col col-lg-4 col-md-6 col-sm-12"><div><h1 li-object="collection.title">{{ collection.title }}</h1></div></div><div class="col col-lg-8 col-md-6 col-sm-12"><div>{% paginate collection.products by 40 %}
     <div li-paginate:by="40" li-paginate="collection.products" class="u-vflex-left-top u-vgap-16" by="40"><select id="sort-by" li-for:inside="option in collection.sort_options">
         {% for option in collection.sort_options %}                            
                             <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% elsif option.value == collection.default_sort_by %}selected{% endif %}>{{ option.name }}</option>
@@ -34,4 +34,22 @@
 {% endif %}{% if collection.products == blank %}    <div li-if="collection.products == blank">
     <div>Nothing here.</div><div>There are no results that match this criteria. Try changing your filters.</div>    </div>
 {% endif %}</div></div>{% endpaginate %}
- {% schema %} {"tag":"div","name":"Collection Products","presets":[{"name":"Collection Products","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["collection"]}} {% endschema %}
+</div></div></div></div><div class="u-lg-hide w-embed w-script"><script>//sortierung
+  Shopify.queryParams = {};
+  // Preserve existing query parameters
+  if (location.search.length) {
+    var params = location.search.substr(1).split('&');
+    for (var i = 0; i < params.length; i++) {
+      var keyValue = params[i].split('=');
+      if (keyValue.length) {
+        Shopify.queryParams[decodeURIComponent(keyValue[0])] = decodeURIComponent(keyValue[1]);
+      }
+    }
+  }
+  // Update sort_by query parameter on select change
+  document.querySelector('#sort-by').addEventListener('change', function(e) {
+    var value = e.target.value;
+    Shopify.queryParams.sort_by = value;
+    location.search = new URLSearchParams(Shopify.queryParams).toString();
+  });
+</script></div> {% schema %} {"tag":"section","name":"Collection Products","class":"section","presets":[{"name":"Collection Products","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["collection"]}} {% endschema %}
