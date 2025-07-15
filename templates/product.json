@@ -1,0 +1,31 @@
+{
+    "sections": {
+        "product_hero": {
+            "type": "product_hero",
+            "blocks": {
+                "product-name": {
+                    "type": "product-name",
+                    "name": "Product Name"
+                },
+                "description": {
+                    "type": "description",
+                    "name": "Description"
+                },
+                "add-to-cart": {
+                    "type": "add-to-cart",
+                    "name": "Add to Cart"
+                }
+            },
+            "block_order": [
+                "product-name",
+                "description",
+                "add-to-cart"
+            ]
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.page-main",
+    "order": [
+        "product_hero"
+    ]
+}
