@@ -1,0 +1,51 @@
+{
+    "sections": {
+        "product_hero": {
+            "type": "product_hero",
+            "blocks": {
+                "product-name-price": {
+                    "name": "Product Name & Price",
+                    "type": "product-name-price",
+                    "settings": null
+                },
+                "description": {
+                    "name": "Description",
+                    "type": "description",
+                    "settings": null
+                },
+                "add-to-cart": {
+                    "name": "Add to Cart",
+                    "type": "add-to-cart",
+                    "settings": [
+                        {
+                            "id": "text_add_to_cart",
+                            "type": "text",
+                            "label": "Add to Cart",
+                            "default": "Add to cart"
+                        },
+                        {
+                            "id": "text_not_in_stock",
+                            "type": "text",
+                            "label": "Not in Stock",
+                            "default": "Not in Stock"
+                        }
+                    ]
+                }
+            },
+            "block_order": [
+                "product-name-price",
+                "description",
+                "add-to-cart"
+            ]
+        },
+        "recommended_products": {
+            "type": "recommended_products"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.page-main",
+    "order": [
+        "product_hero",
+        "recommended_products"
+    ]
+}

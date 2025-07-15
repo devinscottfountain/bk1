@@ -1,0 +1,37 @@
+{% paginate collection.products by 40 %}
+    <div li-paginate:by="40" li-paginate="collection.products" class="u-vflex-left-top u-vgap-16" by="40"><select id="sort-by" li-for:inside="option in collection.sort_options">
+        {% for option in collection.sort_options %}                            
+                            <option value="{{ option.value }}" {% if option.value == collection.sort_by %}selected{% elsif option.value == collection.default_sort_by %}selected{% endif %}>{{ option.name }}</option>
+                            
+                    {% endfor %}    </select>
+<div class="u-vflex-stretch-top u-vgap-40 u-w-100"><div class="row">{% for product in collection.products %}    <div li-for="product in collection.products" class="col col-lg-6">
+                                    
+                            {% render 'product_item', product: product %}
+
+                            
+                        </div>
+{% endfor %}</div>{% if paginate.pages > 1 %}    <nav li-if="paginate.pages > 1" class="pagination_component">
+    <ul role="list" class="pagination_list w-list-unstyled">{% if paginate.previous %}    <li li-if="paginate.previous" class="pagination_item">
+    <a li-object:href="paginate.previous.url" href="{{ paginate.previous.url }}" class="w-inline-block"><div>Back</div></a>    </li>
+{% endif %}{% if paginate.previous == false %}    <li li-if="paginate.previous == false" class="pagination_item">
+    <a li-object:href="paginate.previous.url" href="{{ paginate.previous.url }}" class="w-inline-block"><div>Back disabled</div></a>    </li>
+{% endif %}{% for part in paginate.parts %}    <li li-for="part in paginate.parts" class="pagination_item">
+                                    
+                            {% if part.is_link %}    <div li-if="part.is_link">
+    <a li-object:href="part.url" href="{{ part.url }}" class="pagination_count w-inline-block"><div li-object="part.title" class="text-style-link">{{ part.title }}</div></a>    </div>
+{% endif %}
+                            
+                            {% if part.is_link == false %}    <div li-if="part.is_link == false">
+    <div li-object="part.title" class="{% if part.title == paginate.current_page %}text-weight-semibold{% endif %}">{{ part.title }}</div>    </div>
+{% endif %}
+                            
+                        </li>
+{% endfor %}{% if paginate.next == false %}    <li li-if="paginate.next == false" class="pagination_item">
+    <a li-object:href="paginate.next.url" href="{{ paginate.next.url }}" class="w-inline-block"><div>Pagination Disabled</div></a>    </li>
+{% endif %}{% if paginate.next %}    <li li-if="paginate.next" class="pagination_item">
+    <a li-object:href="paginate.next.url" href="{{ paginate.next.url }}" class="w-inline-block"><div>Next</div></a>    </li>
+{% endif %}</ul>    </nav>
+{% endif %}{% if collection.products == blank %}    <div li-if="collection.products == blank">
+    <div>Nothing here.</div><div>There are no results that match this criteria. Try changing your filters.</div>    </div>
+{% endif %}</div></div>{% endpaginate %}
+ {% schema %} {"tag":"div","name":"Collection Products","presets":[{"name":"Collection Products","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["collection"]}} {% endschema %}

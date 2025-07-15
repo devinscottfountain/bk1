@@ -1,0 +1,16 @@
+{
+    "sections": {
+        "site_hero": {
+            "type": "site_hero"
+        },
+        "featured_products": {
+            "type": "featured_products"
+        }
+    },
+    "layout": "theme",
+    "wrapper": "main.page-main",
+    "order": [
+        "site_hero",
+        "featured_products"
+    ]
+}
