@@ -1,49 +1,56 @@
 <script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
 
-<div li-element="product-variant-container" 
-     class="product-item_component u-vflex-stretch-top u-vgap-16" 
-     x-data='handleVariant({{ product | json }}, {{ product.options_by_name | json }}, {{ product.selected_or_first_available_variant | json }})' 
-     x-init="$nextTick(() => { activateVariants() })" 
-     @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">
+<div
+  li-element="product-variant-container"
+  class="product-item_component u-vflex-stretch-top u-vgap-16"
+  x-data="handleVariant({{ product | json }}, {{ product.options_by_name | json }}, {{ product.selected_or_first_available_variant | json }})"
+  x-init="$nextTick(() => { activateVariants() })"
+  @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"
+>
+  <!-- Product Image Section -->
+  <div class="product-item_image-link u-p-relative">
+    <a li-object:href="product.url" class="u-w-100 w-inline-block">
+      <img
+        class="u-aspect-4x5"
+        li-object:src="product.featured_image | img_url: '900'"
+        li-object:srcset="product.featured_image | img_url: '400' 400w, product.featured_image | img_url: '900' 900w"
+        li-object:alt="product.featured_image.alt | default: 'Product image'"
+        sizes="(max-width: 767px) 100vw, (max-width: 991px) 95vw, 940px"
+        loading="lazy"
+      >
+    </a>
 
-    <!-- Product Image Section -->
-    <div class="product-item_image-link u-p-relative">
-        <a li-object:href="product.url" class="u-w-100 w-inline-block">
-            <img class="u-aspect-4x5" 
-                 li-object:src="product.featured_image | img_url: '900'"
-                 li-object:alt="product.featured_image.alt"
-                 sizes="(max-width: 767px) 100vw, (max-width: 991px) 95vw, 940px" 
-                 loading="lazy">
-        </a>
-
-        <!-- Sold Out Badge -->
-        <div li-if="!product.selected_or_first_available_variant.available">
-            <div class="badge">Sold Out</div>
-        </div>
-
-        <!-- On Sale Badge -->
-        <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
-            <div class="badge">On Sale</div>
-        </div>
+    <!-- Sold Out Badge -->
+    <div li-if="!product.selected_or_first_available_variant.available">
+      <div class="badge">Sold Out</div>
     </div>
 
-    <!-- Product Info Section -->
-    <a li-object:href="product.url" class="u-vflex-left-top u-vgap-4 w-inline-block">
-        <h3 li-object="product.title">{{ product.title }}</h3>
+    <!-- On Sale Badge -->
+    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+      <div class="badge">On Sale</div>
+    </div>
+  </div>
 
-        <!-- Price Section -->
-        <div class="u-hflex-left-top u-hgap-8">
-            <!-- Compare at Price (crossed out) -->
-            <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
-                <div li-object="product.selected_or_first_available_variant.compare_at_price | money" class="u-style-strikethrough">
-                    {{ product.selected_or_first_available_variant.compare_at_price | money }}
-                </div>
-            </div>
+  <!-- Product Info Section -->
+  <a li-object:href="product.url" class="u-vflex-left-top u-vgap-4 w-inline-block">
+    <h3 li-object="product.title">{{ product.title }}</h3>
 
-            <!-- Current Price -->
-            <div li-object="product.selected_or_first_available_variant.price | money">
-                {{ product.selected_or_first_available_variant.price | money }}
-            </div>
+    <!-- Price Section -->
+    <div class="u-hflex-left-top u-hgap-8">
+      <!-- Compare at Price (crossed out) -->
+      <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+        <div
+          li-object="product.selected_or_first_available_variant.compare_at_price | money"
+          class="u-style-strikethrough"
+        >
+          {{ product.selected_or_first_available_variant.compare_at_price | money }}
         </div>
-    </a>
+      </div>
+
+      <!-- Current Price -->
+      <div li-object="product.selected_or_first_available_variant.price | money">
+        {{ product.selected_or_first_available_variant.price | money }}
+      </div>
+    </div>
+  </a>
 </div>
