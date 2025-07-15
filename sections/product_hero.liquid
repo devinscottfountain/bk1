@@ -22,7 +22,10 @@
     {% if block.type == "description" %}
                     <div li-block="Description">
                                     
-                                    <h2>Description</h2>
+                                    <h2>
+{{ block.settings.text_heading }}
+</h2>
+
                                     
                                     <div li-object="product.description" class="rich-text w-richtext">{{ product.description }}</div>
                                     
@@ -79,4 +82,4 @@
 {% endif %}
                             
                     {% endfor %}    </div>
-</div></div></div></div> {% schema %} {"tag":"section","name":"Product Hero","class":"section","blocks":[{"name":"Product Name","type":"product-name","settings":null},{"name":"Description","type":"description","settings":null},{"name":"Add to Cart","type":"add-to-cart","settings":[{"id":"text_add_to_cart","type":"text","label":"Add to Cart","default":"Add to cart"},{"id":"text_not_in_stock","type":"text","label":"Not in Stock","default":"Not in Stock"}]}],"presets":[{"name":"Product Hero","category":"Liquify","blocks":[{"type":"product-name"},{"type":"description"},{"type":"add-to-cart"}]}],"enabled_on":{"templates":["product"]}} {% endschema %}
+</div></div></div></div> {% schema %} {"tag":"section","name":"Product Hero","class":"section","blocks":[{"name":"Product Name","type":"product-name","settings":null},{"name":"Description","type":"description","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"Description"}]},{"name":"Add to Cart","type":"add-to-cart","settings":[{"id":"text_add_to_cart","type":"text","label":"Add to Cart","default":"Add to cart"},{"id":"text_not_in_stock","type":"text","label":"Not in Stock","default":"Not in Stock"}]}],"presets":[{"name":"Product Hero","category":"Liquify","blocks":[{"type":"product-name"},{"type":"description"},{"type":"add-to-cart"}]}],"enabled_on":{"templates":["product"]}} {% endschema %}
