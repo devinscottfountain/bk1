@@ -1,12 +1,12 @@
 <div class="w-layout-blockcontainer container w-container"><div class="row u-vgap-40"><div class="col col-lg-12"><h2>
 {{ section.settings.text_heading }}
 </h2>
-</div><div class="col col-lg-12"><div class="collection_grid">{% for product in section.settings.collection_collection.products limit: section.settings.collection_collection_limit %}
-<div>
+</div><div class="col col-lg-12">{% for product in section.settings.collection_collections.products limit: section.settings.collection_collections_limit %}
+<div class="collection_grid">
     
     {% render 'product_item', product: product %}
 
     
 </div>
 {% endfor %}
-</div></div></div></div> {% schema %} {"tag":"section","name":"Featured products","class":"section","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"New Arrivals"},{"id":"collection_collection","type":"collection","label":"Collection"},{"type":"range","id":"collection_collection_limit","min":1,"max":99,"step":1,"label":"Limit: Collection","default":6}],"presets":[{"name":"Featured products","category":"Liquify","blocks":[]}]} {% endschema %}
+</div></div></div> {% schema %} {"tag":"section","name":"Featured products","class":"section","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"New Arrivals"},{"id":"collection_collections","type":"collection","label":"Collections"},{"type":"range","id":"collection_collections_limit","min":1,"max":99,"step":1,"label":"Limit: Collections","default":6}],"presets":[{"name":"Featured products","category":"Liquify","blocks":[]}]} {% endschema %}
