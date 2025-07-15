@@ -1,9 +1,47 @@
 <script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
-<div li-element="product-variant-container" class="product-item_component u-vflex-stretch-top u-vgap-16" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div class="product-item_image-link u-p-relative"><a li-object:href="product.url" href="{{ product.url }}" class="u-w-100 w-inline-block"><img class="u-aspect-4x5" src="{{ product.featured_image | img_url: '900' }}" alt="{{ product.featured_image.alt }}" sizes="(max-width: 767px) 100vw, (max-width: 991px) 95vw, 940px" li-object:src="product.featured_image | img_url: '900'" loading="lazy" li-object:alt="product.featured_image.alt" srcset="{{ 'hassaan-qaiser-bKfkhVRAJTQ-unsplash_1hassaan-qaiser-bKfkhVRAJTQ-unsplash.avif' | asset_url }} 500w, {{ 'hassaan-qaiser-bKfkhVRAJTQ-unsplash_1hassaan-qaiser-bKfkhVRAJTQ-unsplash.avif' | asset_url }} 2000w">
-</a>{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true">
-    <div>Sold Out</div>    </div>
-{% endif %}{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
-    On Sale    </div>
-{% endif %}</div><a li-object:href="product.url" href="{{ product.url }}" class="u-vflex-left-top u-vgap-4 w-inline-block"><h3 li-object="product.title">{{ product.title }}</h3><div class="u-hflex-left-top u-hgap-8">{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
-    <div li-object="product.compare_at_price | money" class="u-style-strikethrough">{{ product.compare_at_price | money }}</div>    </div>
-{% endif %}<div li-object="product.price | money">{{ product.price | money }}</div></div></a></div>
+
+<div li-element="product-variant-container" 
+     class="product-item_component u-vflex-stretch-top u-vgap-16" 
+     x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" 
+     x-init="$nextTick(() => { activateVariants() })" 
+     @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)">
+     
+    <!-- Product Image Section -->
+    <div class="product-item_image-link u-p-relative">
+        <a li-object:href="product.url" class="u-w-100 w-inline-block">
+            <img class="u-aspect-4x5" 
+                 li-object:src="product.featured_image | img_url: '900'" 
+                 li-object:alt="product.featured_image.alt" 
+                 sizes="(max-width: 767px) 100vw, (max-width: 991px) 95vw, 940px" 
+                 loading="lazy">
+        </a>
+        
+        <!-- Sold Out Badge -->
+        <div li-if="product.selected_or_first_available_variant.available != true">
+            <div>Sold Out</div>
+        </div>
+        
+        <!-- On Sale Badge -->
+        <div li-if="product.compare_at_price_max > product.price">
+            On Sale
+        </div>
+    </div>
+    
+    <!-- Product Info Section -->
+    <a li-object:href="product.url" class="u-vflex-left-top u-vgap-4 w-inline-block">
+        <h3 li-object="product.title">{{ product.title }}</h3>
+        
+        <!-- Price Section -->
+        <div class="u-hflex-left-top u-hgap-8">
+            <!-- Compare at Price (crossed out) -->
+            <div li-if="product.compare_at_price_max > product.price">
+                <div li-object="product.compare_at_price | money" class="u-style-strikethrough">
+                    {{ product.compare_at_price | money }}
+                </div>
+            </div>
+            
+            <!-- Current Price -->
+            <div li-object="product.price | money">{{ product.price | money }}</div>
+        </div>
+    </a>
+</div>
