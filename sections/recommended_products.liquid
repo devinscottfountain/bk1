@@ -1,5 +1,5 @@
 <!-- Always render section container for JavaScript to target -->
-<div data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related" class="padding-global padding-section-medium product-recommendations">
+  <div data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=2&intent=related" class="padding-global padding-section-medium product-recommendations">
   <div class="container-large">
     <div class="headline-wrapper">
       <h2 class="heading-style-h2">{{ section.settings.text_heading }}</h2>
@@ -77,6 +77,15 @@
       "type": "text",
       "label": "Heading",
       "default": "Recommended"
+    },
+    {
+      "id": "products_limit",
+      "type": "range",
+      "label": "Number of products to show",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 4
     }
   ],
   "presets": [
