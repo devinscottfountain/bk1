@@ -1,0 +1,62 @@
+<style>:root {
+    /* Custom variables go here. */
+    interpolate-size: allow-keywords;
+  }
+  ::before, ::after {
+    box-sizing: border-box;
+  }
+  html {
+    background-color: var(--background--primary);
+  }
+  [li-cloak_disabled="hide"] { display: none !important; }
+  [x-cloak] { display: none !important; }
+  textarea { field-sizing: content; }
+  section, header, footer, .page-main, .page-wrapper, .container {
+    position: relative;
+  }
+  /* Remove top margin on rich text first child */
+  .w-richtext>:first-child { margin-top: 0; }
+  /* Remove bottom margin of rich text last child */
+  .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child { margin-bottom: 0; }
+  a:not([class]) { text-decoration: underline; }
+  svg {
+    max-width: 100%;
+  }
+  img::selection {
+    background: transparent;
+  }
+  video {
+    width: 100%;
+    object-fit: cover;
+  }
+  video.wf-empty {
+    padding: 0;
+  }
+  /* Hide an object on the canvas but keep it's order in the DOM. Great for making an invisible space in a grid or flexbox. */
+  .u-invisible {
+    visibility: hidden;
+  }
+  .u-clamp-1, .u-clamp-2, .u-clamp-3 {
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    overflow: clip;
+    display: -webkit-box;
+  }
+  .u-clamp-2 { -webkit-line-clamp: 2; line-clamp: 2; }
+  .u-clamp-3 { -webkit-line-clamp: 3; line-clamp: 3; }
+  /* Changes the color of the default Webflow lightbox color */
+  .w-lightbox-backdrop {
+    background:  rgba(10, 2, 122, 0.8) !important;
+  }
+  .w-checkbox-input--inputType-custom.w--redirected-focus,
+  .w-form-formradioinput--inputType-custom.w--redirected-focus {
+    box-shadow: none;
+  }
+  @media (prefers-color-scheme: light) {
+    option {
+      color: black;
+    }
+  }
+</style>

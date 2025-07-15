@@ -1,0 +1,82 @@
+<div li-render="custom-wrapper" class="w-layout-blockcontainer container w-container"><script src="{{ 'liquify_custom.js' | asset_url }}" type="text/javascript"></script>
+<div li-element="product-variant-container" class="row u-vgap-40" x-data="handleVariant({{ product | json | escape }}, {{ product.options_by_name | json | escape }}, {{ product.selected_or_first_available_variant | json | escape }})" x-init="$nextTick(() => { activateVariants() })" @setbundleitem.window="updateBundleItem($event.detail.product, $event.detail.quantity)"><div class="col col-lg-1 u-md-hide"></div><div class="col col-lg-4 col-md-6 col-sm-12 col-sm-last"><div class="u-vflex-stretch-top u-vgap-64">{% for block in section.blocks %}
+    {% if block.type == "product-name-price" %}
+                    <div li-block="Product Name & Price" class="u-vflex-stretch-top u-vgap-16">
+                                    
+                                    <div class="u-hflex-left-top u-hgap-8">{% if product.selected_or_first_available_variant.available != true %}    <div li-if="product.selected_or_first_available_variant.available != true">
+    Out of Stock    </div>
+{% endif %}{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+    On Sale    </div>
+{% endif %}</div>
+                                    
+                                    <div class="u-hflex-between-center u-hgap-8"><h1 li-object:text="product.title">
+{{ product.title }}
+</h1><div class="u-hflex-right-center u-hgap-8"><div li-object="product.selected_or_first_available_variant.price | money">{{ product.selected_or_first_available_variant.price | money }}</div>{% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}    <div li-if="product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price">
+    <div li-js-object="product.selected_or_first_available_variant.compare_at_price | money" class="u-style-strikethrough" x-text="product.selected_or_first_available_variant.compare_at_price | money">$14.99</div>    </div>
+{% endif %}</div></div>
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+{% for block in section.blocks %}
+    {% if block.type == "description" %}
+                    <div li-block="Description">
+                                    
+                                    <h2>Description</h2>
+                                    
+                                    <div class="rich-text w-richtext"><p li-object="product.description">{{ product.description }}</p></div>
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+{% for block in section.blocks %}
+    {% if block.type == "add-to-cart" %}
+                    <div li-block="Add to Cart">
+                                    
+                                    <div class="product-header_form-block w-form">{% form 'product', product, class: 'product-header_default-state' %}
+<div class="product-header_add-to-cart-wrapper">{% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-list">
+    <div li-for:inside="option in product.options_with_values">
+        {% for option in product.options_with_values %}                            
+                            {% unless option == 'Color' %}    <div li-unless="option == 'Color'" class="product-header_option">
+    <div li-object="option.name | escape">{{ option.name | escape }}</div><div class="product-header_radio-list">{% for value in option.values %}    <label li-for="value in option.values" class="product-header_radio w-radio">
+                                    
+                            <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product-header_radio-button w-radio-input"></div>
+                            <input li-render-value="{{ product.url }}?section_id={{ section.id }}&variant={{ value.variant.id }}" name="{{ option.name | handleize }}" data-name="Radio 3" li-render-trigger="input" type="radio" id="radio-3" style="opacity:0;position:absolute;z-index:-1" value="{{ value.variant.id }}"  {% if option.selected_value == value %} checked='checked'{% endif %}{% unless value.available %} disabled='disabled'{% endunless %}>
+
+                            <span li-object="value" class="text-size-regular text-weight-semibold w-form-label" for="radio-3">{{ value }}</span>
+                            
+                        </label>
+{% endfor %}</div>    </div>
+{% endunless %}
+                            
+                    {% endfor %}    </div>
+    </div>
+{% endif %}{% if product.selected_or_first_available_variant.available == true %}    <div li-if="product.selected_or_first_available_variant.available == true" class="product-header_buy-wrappper">
+    <a li-element="add-to-cart" href="#" class="btn w-button" @click="addToCart($event, true)" :disabled="!addToCartButton"><span>
+{{ block.settings.text_add_to_cart }}
+</span>
+</a>    </div>
+{% endif %}{% if product.selected_or_first_available_variant.available == false %}    <div li-if="product.selected_or_first_available_variant.available == false" class="product-header_out-of-stock">
+    <a href="#" class="btn w-button" href="#">
+{{ block.settings.text_not_in_stock }}
+</a>
+    </div>
+{% endif %}</div>{% endform %}
+<div class="hide w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="hide w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div>
+                                    
+                            </div>
+            {% endif %}
+{% endfor %}
+</div></div><div class="col col-lg-1 u-md-hide"></div><div class="col col-lg-6 col-sm-12"><div class="swiper"><div li-for:inside="media in product.media" class="swiper-wrapper">
+        {% for media in product.media %}                            
+                            {% if media.media_type == 'image' %}    <div li-if="media.media_type == 'image'" class="swiper-slide">
+    <img src="{{ media | image_url: width: 1280 }}" loading="lazy" li-object:src="media | image_url: width: 1280" li-object:alt="media.alt" alt="{{ media.alt }}" class="u-aspect-4x5">
+    </div>
+{% endif %}
+                            
+                            {% if media.media_type == 'video' %}    <div li-if="media.media_type == 'video'" class="swiper-slide">
+    <div class="u-aspect-4x5"><div li-object="media | video_tag: autoplay: true, loop: true, muted: true, controls: false" class="u-h-100 u-w-100">{{ media | video_tag: autoplay: true, loop: true, muted: true, controls: false }}</div></div>    </div>
+{% endif %}
+                            
+                    {% endfor %}    </div>
+</div></div></div></div> {% schema %} {"tag":"section","name":"Product Hero","class":"section","blocks":[{"name":"Product Name & Price","type":"product-name-price","settings":null},{"name":"Description","type":"description","settings":null},{"name":"Add to Cart","type":"add-to-cart","settings":[{"id":"text_add_to_cart","type":"text","label":"Add to Cart","default":"Add to cart"},{"id":"text_not_in_stock","type":"text","label":"Not in Stock","default":"Not in Stock"}]}],"presets":[{"name":"Product Hero","category":"Liquify","blocks":[{"type":"product-name-price"},{"type":"description"},{"type":"add-to-cart"}]}],"enabled_on":{"templates":["product"]}} {% endschema %}

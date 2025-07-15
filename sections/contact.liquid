@@ -1,0 +1,21 @@
+<div class="w-layout-blockcontainer container w-container"><div class="row u-vgap-64"><div class="col col-lg-6 col-sm-12"><div class="u-vflex-left-top u-vgap-24"><h1>
+{{ section.settings.text_heading }}
+</h1>
+<p>
+{{ section.settings.text_paragraph }}
+</p>
+</div></div><div class="col col-lg-6 col-sm-12"><div class="w-form">{% form 'contact', return_to: '/' %}
+<div class="input-group"><label for="name" class="input-label">
+{{ section.settings.text_name }}
+</label>
+<input class="input w-input" maxlength="256" name="contact[first_name]" data-name="Name" placeholder="Bruce Tripp" type="text" id="name" required="">
+</div><div class="input-group"><label for="Email" class="input-label">
+{{ section.settings.text_email }}
+</label>
+<input class="input w-input" maxlength="256" name="contact[email]" data-name="Email" placeholder="youremail@website.com" type="email" id="Email" required="">
+</div><div class="input-group cc-textarea"><label for="Message" class="input-label">
+{{ section.settings.text_message }}
+</label>
+<textarea class="input cc-textarea w-input" maxlength="5000" name="contact[body]" data-name="Message" placeholder="What would you like to say?" id="Message" required=""></textarea></div><input type="submit" data-wait="Please wait..." class="btn w-button" value="Submit">
+{% endform %}
+<div class="w-form-done"><div>Thank you! Your submission has been received!</div></div><div class="w-form-fail"><div>Oops! Something went wrong while submitting the form.</div></div></div></div></div></div> {% schema %} {"tag":"section","name":"Contact","class":"section","settings":[{"id":"text_heading","type":"text","label":"Heading","default":"Contact"},{"id":"text_paragraph","type":"text","label":"Paragraph","default":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut sem vitae risus tristique posuere."},{"id":"text_name","type":"text","label":"Name","default":"Name"},{"id":"text_email","type":"text","label":"Email","default":"Name"},{"id":"text_message","type":"text","label":"Message","default":"Message"}],"presets":[{"name":"Contact","category":"Liquify","blocks":[]}]} {% endschema %}
