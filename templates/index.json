@@ -22,8 +22,8 @@
       "type": "featured_products",
       "settings": {
         "text_heading": "New Arrivals",
-        "collection_collections": "shop-all",
-        "collection_collections_limit": 4
+        "collection_collection": "shop-all",
+        "collection_collection_limit": 4
       }
     }
   },
