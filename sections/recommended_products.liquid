@@ -1,5 +1,4 @@
-<!-- Only show section if recommendations exist -->
-{% if recommendations.performed and recommendations.products_count > 0 %}
+<!-- Always render section container for JavaScript to target -->
 <div data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related" class="padding-global padding-section-medium product-recommendations">
   <div class="container-large">
     <div class="headline-wrapper">
@@ -7,23 +6,30 @@
     </div>
     <div class="product_list-wrapper">
       <ul role="list" class="product_list w-list-unstyled">
-        {% for product in recommendations.products %}    
-          <li class="product_list-item">
-            {% render 'product_item', product: product %}
+        {% if recommendations.performed %}
+          <!-- Only show products if recommendations were fetched via endpoint -->
+          {% for product in recommendations.products %}    
+            <li class="product_list-item">
+              {% render 'product_item', product: product %}
+            </li>
+          {% endfor %}
+        {% else %}
+          <!-- Show placeholder while JavaScript loads recommendations -->
+          <li class="product_list-item placeholder">
+            <!-- Add your loading/placeholder content here -->
+            <div class="loading-placeholder">Loading recommendations...</div>
           </li>
-        {% endfor %}
+        {% endif %}
       </ul>
     </div>
   </div>
 </div>
-{% endif %}
 
 <div class="w-embed w-script">
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const productRecommendationsSection = document.querySelector('.product-recommendations');
       
-      // Exit early if section doesn't exist (no recommendations)
       if (!productRecommendationsSection) return;
       
       const url = productRecommendationsSection.dataset.url;
@@ -35,16 +41,24 @@
           html.innerHTML = text;
           const recommendations = html.querySelector('.product-recommendations');
           
-          // Only update if recommendations exist and have content
-          if (recommendations && recommendations.innerHTML.trim().length) {
-            productRecommendationsSection.innerHTML = recommendations.innerHTML;
+          if (recommendations) {
+            // Check if the fetched content has actual products (not just placeholder)
+            const productItems = recommendations.querySelectorAll('.product_list-item:not(.placeholder)');
+            
+            if (productItems.length > 0) {
+              // Update with real recommendations
+              productRecommendationsSection.innerHTML = recommendations.innerHTML;
+            } else {
+              // Hide section if no recommendations found
+              productRecommendationsSection.style.display = 'none';
+            }
           } else {
-            // Hide section if no recommendations after fetch
+            // Hide section if fetch failed
             productRecommendationsSection.style.display = 'none';
           }
         })
         .catch(e => {
-          console.error(e);
+          console.error('Failed to load recommendations:', e);
           // Hide section on error
           productRecommendationsSection.style.display = 'none';
         });
