@@ -12,6 +12,12 @@
     "product_hero": {
       "type": "product_hero",
       "blocks": {
+        "size_chart_9Ae48j": {
+          "type": "size-chart",
+          "name": "Size Chart",
+          "settings": {},
+          "blocks": {}
+        },
         "product-name": {
           "type": "product-name",
           "name": "Product Name",
@@ -37,6 +43,7 @@
         }
       },
       "block_order": [
+        "size_chart_9Ae48j",
         "product-name",
         "description",
         "add-to-cart"
