@@ -5,7 +5,15 @@
          li-object:alt="product.metafields.custom.chart_image.value.alt" 
          alt="">
     
-    <div li-object="product.metafields.custom.chart | metafield_tag" class="rich-text w-richtext"></div>
+    <!-- Debug: Check if metafield exists -->
+    <div li-if="product.metafields.custom.chart">
+        <div li-object="product.metafields.custom.chart.value" class="rich-text w-richtext"></div>
+    </div>
+    
+    <!-- Fallback if no rich text metafield -->
+    <div li-unless="product.metafields.custom.chart">
+        <p>No chart data available</p>
+    </div>
     
 </div>
 {% schema %} 
