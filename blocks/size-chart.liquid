@@ -5,14 +5,14 @@
          li-object:alt="product.metafields.custom.chart_image.value.alt" 
          alt="">
     
-    <!-- Debug: Check if metafield exists -->
-    <div li-if="product.metafields.custom.chart">
-        <div li-object="product.metafields.custom.chart.value" class="rich-text w-richtext"></div>
+    <!-- Display multiline text metafield -->
+    <div li-if="product.metafields.custom.size_table">
+        <div li-object="product.metafields.custom.size_table.value" class="rich-text w-richtext"></div>
     </div>
     
-    <!-- Fallback if no rich text metafield -->
-    <div li-unless="product.metafields.custom.chart">
-        <p>No chart data available</p>
+    <!-- Debug fallback -->
+    <div li-unless="product.metafields.custom.size_table">
+        <p>No size table data available</p>
     </div>
     
 </div>
