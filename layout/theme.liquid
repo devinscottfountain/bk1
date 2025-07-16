@@ -27,6 +27,75 @@
               <link rel="apple-touch-icon" type="image/png" href="{{ settings.apple_touch_icon | img_url: '32x32' }}">
             {% endif %}
         
+<!--  Alpine Focus Plugin  -->
+<script defer="" src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script><!--  Alpine JS  -->
+<script defer="" src="{{ 'alpinejs3.js' | asset_url }}"></script><link href="{{ canonical_url }}" rel="canonical">
+ 
+{% if page_image %}
+  <meta property="og:image" content="http:{{ page_image | image_url }}">
+  <meta property="og:image:secure_url" content="https:{{ page_image | image_url }}">
+  <meta property="og:image:width" content="{{ page_image.width }}">
+  <meta property="og:image:height" content="{{ page_image.height }}">
+{% endif %}
+  
+{% case template.name %}
+  {% when product %}
+<script type="application/ld+json">
+  {{ product | structured_data }}
+</script>
+{% when article %}
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+{% when collection %}
+<script type="application/ld+json">
+                  {
+                     "@context":"http:\/\/schema.org",
+                     "@type":"WebPage",
+                     "url":"{{ shop.url }}",
+                     "mainEntity":{"@type":"offerCatalog",
+                     "name": "{{ collection.title }}",
+                     "url": "{{ collection.url }}",
+                     "numberOfItems":{{ collection.products.size }}}
+              }
+</script>
+{% endcase %}
+{% assign min_price = null %}
+{% assign max_price = 0 %}
+{% for product in collections.all-products.products %}
+  {% for variant in product.variants %}
+    {% assign price = variant.price | money_without_currency | replace: ',', '.' | plus: 0 %}
+    {% if min_price == null or price < min_price %}
+      {% assign min_price = price %}
+    {% endif %}
+    {% if price > max_price %}
+      {% assign max_price = price %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+    <script type="application/ld+json">
+      {
+        "@context" : "https://schema.org",
+        "@type" : "LocalBusiness",
+        "mainEntityOfPage" : {
+          "@type" : "WebPage",
+          "@id" : "{{ shop.url }}"
+        },
+        "name" : "{{ shop.name }}",
+        "telephone" : "{{ shop.phone }}",
+        "email" : "{{ shop.email }}",
+        "priceRange" : "{{ min_price | money }} - {{ max_price | money }}",
+        "address" : {
+          "@type" : "PostalAddress",
+          "streetAddress" : "{{ shop.address.address1 }}",
+          "addressLocality" : "{{ shop.address.city }}",
+          "addressRegion" : "{{ shop.address.province }}",
+          "addressCountry" : "{{ shop.address.country_code }}",
+          "postalCode" : "{{ shop.address.zip }}"
+        },
+        "url" : "{{ shop.url }}"
+      }
+    </script>
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <style>body {
