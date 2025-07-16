@@ -6,36 +6,14 @@
          li-object:alt="product.metafields.custom.chart_image.alt" 
          alt="">
     
-    <!-- Try different access patterns -->
-    <div style="background: #f0f0f0; padding: 10px; margin: 10px 0; font-size: 12px;">
-        <p><strong>Debug - Different Access Methods:</strong></p>
-        <p>Method 1: <span li-object="product.metafields.custom.size_tables"></span></p>
-        <p>Method 2: <span li-object="product.metafields.custom.size_tables.value"></span></p>
-        <p>Method 3: <span li-object="product.metafields['custom']['size_tables']"></span></p>
-        <p>Method 4: <span li-object="product.metafields['custom']['size_tables'].value"></span></p>
-    </div>
-    
-    <!-- Try direct Liquid output (bypass Liquify) -->
-    <div style="background: #ffe6e6; padding: 10px; margin: 10px 0;">
-        <p><strong>Direct Liquid Test:</strong></p>
-        <p>{{ product.metafields.custom.size_tables.value }}</p>
-        <p>{{ product.metafields.custom.size_tables }}</p>
-    </div>
-    
-    <!-- Multiple conditional checks -->
-    <div li-if="product.metafields.custom.size_tables.value">
-        <h4>✓ Found with .value</h4>
-        <div li-object="product.metafields.custom.size_tables.value"></div>
-    </div>
-    
-    <div li-elsif="product.metafields.custom.size_tables">
-        <h4>✓ Found without .value</h4>
-        <div li-object="product.metafields.custom.size_tables"></div>
-    </div>
-    
-    <div li-else="">
-        <p style="color: red;">❌ Metafield not found or empty</p>
-    </div>
+    <!-- HTML Table using direct Liquid (not Liquify) -->
+    {% if product.metafields.custom.size_tables.value %}
+        <div class="size-chart-content">
+            {{ product.metafields.custom.size_tables.value }}
+        </div>
+    {% else %}
+        <p>No size table data available</p>
+    {% endif %}
     
 </div>
 {% schema %} 
