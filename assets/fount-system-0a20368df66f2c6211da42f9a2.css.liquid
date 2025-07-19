@@ -478,6 +478,11 @@ figcaption {
   max-width: none;
 }
 
+.container.u-z-index-1 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .row {
   margin-right: var(--_layout---columns--negative-gutter);
   margin-left: var(--_layout---columns--negative-gutter);
@@ -2075,6 +2080,32 @@ figcaption {
   grid-template-columns: 1fr 1fr;
   grid-auto-columns: 1fr;
   display: grid;
+}
+
+.u-aspect-product {
+  aspect-ratio: 3 / 4;
+}
+
+.chart_modal {
+  z-index: 11;
+  display: none;
+  position: fixed;
+  inset: 0%;
+}
+
+.chart_window {
+  padding: var(--_spacing---rems--1-5rem);
+  background-color: var(--background--primary);
+  width: 100%;
+  max-width: 48rem;
+}
+
+.chart_scrim {
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background-color: #fff3;
+  position: absolute;
+  inset: 0%;
 }
 
 @media screen and (max-width: 991px) {

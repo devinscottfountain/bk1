@@ -5,13 +5,13 @@
 </div><div class="col col-lg-1 u-md-hide"></div><div class="col col-lg-6 col-sm-12"><div class="swiper"><div li-for:inside="media in product.media" class="swiper-wrapper">
         {% for media in product.media %}                            
                             {% if media.media_type == 'image' %}    <div li-if="media.media_type == 'image'" class="swiper-slide">
-    <img src="{{ media | image_url: width: 1280 }}" loading="lazy" li-object:src="media | image_url: width: 1280" li-object:alt="media.alt" alt="{{ media.alt }}" class="u-aspect-4x5">
+    <img src="{{ media | image_url: width: 1280 }}" loading="lazy" li-object:src="media | image_url: width: 1280" li-object:alt="media.alt" alt="{{ media.alt }}" class="u-aspect-product">
     </div>
 {% endif %}
                             
                             {% if media.media_type == 'video' %}    <div li-if="media.media_type == 'video'" class="swiper-slide">
-    <div class="u-aspect-4x5"><div li-object="media | video_tag: autoplay: true, loop: true, muted: true, controls: false" class="u-h-100 u-w-100">{{ media | video_tag: autoplay: true, loop: true, muted: true, controls: false }}</div></div>    </div>
+    <div class="u-aspect-product"><div li-object="media | video_tag: autoplay: true, loop: true, muted: true, controls: false" class="u-h-100 u-w-100">{{ media | video_tag: autoplay: true, loop: true, muted: true, controls: false }}</div></div>    </div>
 {% endif %}
                             
                     {% endfor %}    </div>
-</div></div></div></div> {% schema %} {"tag":"section","name":"Product Hero","class":"section","blocks":[{"type":"product-name"},{"type":"description"},{"type":"add-to-cart"},{"type":"size-chart"},{"type":"@app"}],"presets":[{"name":"Product Hero","category":"Liquify","blocks":[{"type":"product-name"},{"type":"description"},{"type":"add-to-cart"},{"type":"size-chart"}]}],"enabled_on":{"templates":["product"]}} {% endschema %}
+</div></div></div></div> {% schema %} {"tag":"section","name":"Product Hero","class":"section","blocks":[{"type":"product-name"},{"type":"description"},{"type":"add-to-cart"},{"type":"@app"}],"presets":[{"name":"Product Hero","category":"Liquify","blocks":[{"type":"product-name"},{"type":"description"},{"type":"add-to-cart"}]}],"enabled_on":{"templates":["product"]}} {% endschema %}
