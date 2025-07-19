@@ -5,7 +5,7 @@
     <div li-for:inside="option in product.options_with_values">
         {% for option in product.options_with_values %}                            
                             {% unless option == 'Color' %}    <div li-unless="option == 'Color'" class="product-header_option">
-    <div li-object="option.name | escape">{{ option.name | escape }}</div><div class="product-header_radio-list">{% for value in option.values %}    <label li-for="value in option.values" class="product-header_radio w-radio">
+    <div class="product-header_radio-list">{% for value in option.values %}    <label li-for="value in option.values" class="product-header_radio w-radio">
                                     
                             <div class="w-form-formradioinput w-form-formradioinput--inputType-custom product-header_radio-button w-radio-input"></div>
                             <input li-render-value="{{ product.url }}?section_id={{ section.id }}&variant={{ value.variant.id }}" name="{{ option.name | handleize }}" data-name="Radio 3" li-render-trigger="input" type="radio" id="radio-3" style="opacity:0;position:absolute;z-index:-1" value="{{ value.variant.id }}"  {% if option.selected_value == value %} checked='checked'{% endif %}{% unless value.available %} disabled='disabled'{% endunless %}>
