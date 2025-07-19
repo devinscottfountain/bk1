@@ -1,0 +1,11 @@
+<div li-block="Size Chart" li-if="product.metafields.custom.chart_image" data-w-id="3cf23224-81c1-7fb1-9930-aefeebd4d126">
+                    
+                    <div>Size Chart</div>
+                    
+                    <div class="chart_modal"><div class="w-layout-blockcontainer container u-z-index-1 u-h-100 u-vflex-center-center w-container"><div class="chart_window u-vflex-stretch-top u-vgap-16">{% if product.metafields.custom.size_tables.value %}    <div li-if="product.metafields.custom.size_tables.value">
+    <div li-object="product.metafields.custom.size_tables.value">{{ product.metafields.custom.size_tables.value }}</div>    </div>
+{% endif %}<img src="{{ product.metafields.custom.chart_image | image_url: width: 500 }}" loading="lazy" li-object:src="product.metafields.custom.chart_image | image_url: width: 500" alt="">
+</div></div><div class="chart_scrim"></div></div>
+                    
+                </div>
+     {% schema %} {"name":"product.metafields.custom.chart_image","settings":[],"presets":[{"name":"product.metafields.custom.chart_image"}]} {% endschema %}
