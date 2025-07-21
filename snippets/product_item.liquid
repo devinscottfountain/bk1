@@ -13,7 +13,7 @@
                                     
                             {% for value in option.values %}    <div li-for="value in option.values">
                                     
-                            <div li-object="value">{{ value }}</div>
+                            <div li-object="value" {% if value.available %}data-disabled{% endif %}>{{ value }}</div>
                             
                         </div>
 {% endfor %}

@@ -1,12 +1,10 @@
-{% if recommendations.products.size > 0 %}    <div li-if="recommendations.products.size > 0" class="section">
-    <div data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=2&intent=related" class="w-layout-blockcontainer container product-recommendations w-container"><div class="row u-vgap-40"><div class="col col-lg-6 col-sm-12"><div><h2>Worn with</h2></div></div><div class="col col-lg-6 col-sm-12"><div class="recommended_grid">{% for product in recommendations.products %}    <div li-for="product in recommendations.products">
+<div data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=2&intent=related" class="w-layout-blockcontainer container product-recommendations w-container"><div class="row u-vgap-40"><div class="col col-lg-6 col-sm-12"><div><h2>Worn with</h2></div></div><div class="col col-lg-6 col-sm-12"><div class="recommended_grid">{% for product in recommendations.products %}    <div li-for="product in recommendations.products">
                                     
                             {% render 'product_item', product: product %}
 
                             
                         </div>
-{% endfor %}</div></div></div></div>    </div>
-{% endif %}<div class="u-lg-hide w-embed w-script"><script>document.addEventListener('DOMContentLoaded', function() {
+{% endfor %}</div></div></div></div><div class="u-lg-hide w-embed w-script"><script>document.addEventListener('DOMContentLoaded', function() {
     const productRecommendationsSection = document.querySelector('.product-recommendations');
     const url = productRecommendationsSection.dataset.url;
     fetch(url)
@@ -23,4 +21,4 @@
       console.error(e);
     });
   });
-</script></div> {% schema %} {"tag":"section","name":"Recommended Products","presets":[{"name":"Recommended Products","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["product"]}} {% endschema %}
+</script></div> {% schema %} {"tag":"section","name":"Recommended Products","class":"section","presets":[{"name":"Recommended Products","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["product"]}} {% endschema %}
