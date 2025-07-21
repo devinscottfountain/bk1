@@ -18,6 +18,11 @@
                             
                     {% endfor %}    </div>
     </div>
+{% endif %}{% if product.metafields.custom.chart_image %}    <div li-if="product.metafields.custom.chart_image">
+    <div>Sizing Guide</div><div class="chart_modal"><div class="w-layout-blockcontainer container u-z-index-1 u-h-100 u-vflex-center-center w-container"><div class="chart_window u-vflex-stretch-top u-vgap-16">{% if product.metafields.custom.size_tables.value %}    <div li-if="product.metafields.custom.size_tables.value">
+    <div li-object="product.metafields.custom.size_tables.value">{{ product.metafields.custom.size_tables.value }}</div>    </div>
+{% endif %}<img src="{{ product.metafields.custom.chart_image | image_url: width: 500 }}" loading="lazy" li-object:src="product.metafields.custom.chart_image | image_url: width: 500" alt="">
+</div></div><div class="chart_scrim"></div></div>    </div>
 {% endif %}{% if product.selected_or_first_available_variant.available == true %}    <div li-if="product.selected_or_first_available_variant.available == true" class="product-header_buy-wrappper">
     <a li-element="add-to-cart" href="#" class="btn w-button" @click="addToCart($event, true)" :disabled="!addToCartButton"><span>
 {{ block.settings.text_add_to_cart }}
