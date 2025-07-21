@@ -1,8 +1,6 @@
 <div class="w-layout-blockcontainer container w-container"><div class="row row-center-horizontal row-center-vertical"><div class="col col-lg-3"><div>
 {{ section.settings.text_left_text }}
 </div>
-</div><div class="col col-lg-6"><h1 class="u-align-center">
-{{ section.settings.text_heading }}
-</h1>
+</div><div class="col col-lg-6"><a href="{{ section.settings.url_hero_link }}" class="w-inline-block"> <h1 class="u-align-center">{{ section.settings.text_heading }}</h1><img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" alt=""> </a>
 </div><div class="col col-lg-3"><div class="u-vflex-right-center"><a href="{{ section.settings.url_right_link }}"> {{ section.settings.text_right_text }} </a>
-</div></div></div></div> {% schema %} {"tag":"section","name":"Site Hero","class":"section","settings":[{"id":"text_left_text","type":"text","label":"Left Text","default":"New Arrivals"},{"id":"text_heading","type":"text","label":"Heading","default":"Short heading here"},{"id":"url_right_link","type":"url","label":"Right-Link"},{"id":"text_right_text","type":"text","label":"Right Text","default":"Button Text"}],"presets":[{"name":"Site Hero","category":"Liquify","blocks":[]}]} {% endschema %}
+</div></div></div></div> {% schema %} {"tag":"section","name":"Site Hero","class":"section","settings":[{"id":"text_left_text","type":"text","label":"Left Text","default":"New Arrivals"},{"id":"url_hero_link","type":"url","label":"Hero Link"},{"id":"text_heading","type":"text","label":"Heading","default":"Short heading here"},{"id":"url_right_link","type":"url","label":"Right-Link"},{"id":"text_right_text","type":"text","label":"Right Text","default":"Button Text"}],"presets":[{"name":"Site Hero","category":"Liquify","blocks":[]}]} {% endschema %}

@@ -1,0 +1,19 @@
+<div li-block="Extra Info">
+                    
+                    {% if product.metafields.custom.chart_image %}    <div li-if="product.metafields.custom.chart_image" data-w-id="fa476962-8ab5-bea6-ee25-fc5d6d88187d">
+    <div>Sizing Guide</div><div class="chart_modal"><div class="w-layout-blockcontainer container u-z-index-1 u-h-100 u-vflex-center-center w-container"><div class="chart_window u-vflex-stretch-top u-vgap-16">{% if product.metafields.custom.size_tables.value %}    <div li-if="product.metafields.custom.size_tables.value">
+    <div li-object="product.metafields.custom.size_tables.value">{{ product.metafields.custom.size_tables.value }}</div>    </div>
+{% endif %}<img src="{{ product.metafields.custom.chart_image | image_url: width: 500 }}" loading="lazy" li-object:src="product.metafields.custom.chart_image | image_url: width: 500" alt="">
+</div></div><div class="chart_scrim"></div></div>    </div>
+{% endif %}
+                    
+                    <div><h3>Details</h3><div><div li-object="product.metafields.custom.details" class="rich-text w-richtext">{{ product.metafields.custom.details }}</div></div></div>
+                    
+                    <div><h3>Shipping</h3><div><div class="rich-text w-richtext"> {{ block.settings.richtext_shipping }} </div>
+</div></div>
+                    
+                    <div><h3>Terms</h3><div><div class="rich-text w-richtext"> {{ block.settings.richtext_terms }} </div>
+</div></div>
+                    
+                </div>
+     {% schema %} {"name":"Extra Info","settings":[{"id":"richtext_shipping","type":"richtext","label":"Shipping","default":"<p>\n                        For U.S. orders, we ship via USPS Ground Advantage, FedEx Ground Economy, or FedEx Home Delivery based on package size. International orders are shipped using FedEx International Economy.\n                        Orders are fulfilled by our third-party warehouse, Shipbots, in Gardena, CA. They don\u2019t ship on weekends, but typically ship same-day if the order is placed before 12 PM PST. Orders placed after 12 PM ship the next business day.\n            <\/p>"},{"id":"richtext_terms","type":"richtext","label":"Terms","default":"<p>\n                        We allow exchanges for a new size or returns for store credit. Shoot us an email to get the process started. We are not able to offer returns for refunds at this time. We have provided detailed measurements of each product to help you make the best sizing choice. We hope you understand.\n                        If there is an error on our part (due to wrong size or damage), please email us at <a href=\"mailto:info@bareknuckles.co\" target=\"_blank\">info@b<\/p>"}],"presets":[{"name":"Extra Info"}]} {% endschema %}
