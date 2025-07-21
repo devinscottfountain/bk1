@@ -1,6 +1,8 @@
 <div li-block="Extra Info">
                     
-                    <div><h3>Details</h3><div><div li-object="product.metafields.custom.details" class="rich-text w-richtext">{{ product.metafields.custom.details }}</div></div></div>
+                    {% if product.metafields.custom.details %}    <div li-if="product.metafields.custom.details">
+    <h3>Details</h3><div><div li-object="product.metafields.custom.details" class="rich-text w-richtext">{{ product.metafields.custom.details }}</div></div>    </div>
+{% endif %}
                     
                     <div><h3>Shipping</h3><div><div class="rich-text w-richtext"> {{ block.settings.richtext_shipping }} </div>
 </div></div>
