@@ -12,12 +12,6 @@
     "product_hero": {
       "type": "product_hero",
       "blocks": {
-        "size_chart_9Ae48j": {
-          "type": "size-chart",
-          "name": "Size Chart",
-          "settings": {},
-          "blocks": {}
-        },
         "product-name": {
           "type": "product-name",
           "name": "Product Name",
@@ -40,13 +34,22 @@
             "text_not_in_stock": "Not in Stock"
           },
           "blocks": {}
+        },
+        "extra_info_WaFmEf": {
+          "type": "extra-info",
+          "name": "Extra Info",
+          "settings": {
+            "richtext_shipping": "<p>\n                        For U.S. orders, we ship via USPS Ground Advantage, FedEx Ground Economy, or FedEx Home Delivery based on package size. International orders are shipped using FedEx International Economy.\n                        Orders are fulfilled by our third-party warehouse, Shipbots, in Gardena, CA. They don’t ship on weekends, but typically ship same-day if the order is placed before 12 PM PST. Orders placed after 12 PM ship the next business day.\n            </p>",
+            "richtext_terms": "<p>\n                        We allow exchanges for a new size or returns for store credit. Shoot us an email to get the process started. We are not able to offer returns for refunds at this time. We have provided detailed measurements of each product to help you make the best sizing choice. We hope you understand.\n                        If there is an error on our part (due to wrong size or damage), please email us at <a href=\"mailto:info@bareknuckles.co\" target=\"_blank\">info@b</p>"
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "size_chart_9Ae48j",
         "product-name",
         "description",
-        "add-to-cart"
+        "add-to-cart",
+        "extra_info_WaFmEf"
       ],
       "settings": {}
     },
