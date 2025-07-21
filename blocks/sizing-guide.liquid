@@ -1,0 +1,11 @@
+<div li-block="Sizing Guide">
+                    
+                    {% if product.metafields.custom.chart_image %}    <div li-if="product.metafields.custom.chart_image" data-w-id="8c2b5827-3195-5c63-062d-0b7195824f6b">
+    <div>Sizing Guide</div><div data-w-id="8c2b5827-3195-5c63-062d-0b7195824f6e" class="chart_modal"><div class="w-layout-blockcontainer container u-z-index-1 u-h-100 u-vflex-center-center w-container"><div class="chart_window u-vflex-stretch-top u-vgap-16">{% if product.metafields.custom.size_tables.value %}    <div li-if="product.metafields.custom.size_tables.value">
+    <div li-object="product.metafields.custom.size_tables.value">{{ product.metafields.custom.size_tables.value }}</div>    </div>
+{% endif %}<img src="{{ product.metafields.custom.chart_image | image_url: width: 500 }}" loading="lazy" li-object:src="product.metafields.custom.chart_image | image_url: width: 500" alt="">
+</div></div><div class="chart_scrim"></div></div>    </div>
+{% endif %}
+                    
+                </div>
+     {% schema %} {"name":"Sizing Guide","settings":[],"presets":[{"name":"Sizing Guide"}]} {% endschema %}

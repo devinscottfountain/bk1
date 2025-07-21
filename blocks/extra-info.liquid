@@ -1,12 +1,5 @@
 <div li-block="Extra Info">
                     
-                    {% if product.metafields.custom.chart_image %}    <div li-if="product.metafields.custom.chart_image" data-w-id="fa476962-8ab5-bea6-ee25-fc5d6d88187d">
-    <div>Sizing Guide</div><div class="chart_modal"><div class="w-layout-blockcontainer container u-z-index-1 u-h-100 u-vflex-center-center w-container"><div class="chart_window u-vflex-stretch-top u-vgap-16">{% if product.metafields.custom.size_tables.value %}    <div li-if="product.metafields.custom.size_tables.value">
-    <div li-object="product.metafields.custom.size_tables.value">{{ product.metafields.custom.size_tables.value }}</div>    </div>
-{% endif %}<img src="{{ product.metafields.custom.chart_image | image_url: width: 500 }}" loading="lazy" li-object:src="product.metafields.custom.chart_image | image_url: width: 500" alt="">
-</div></div><div class="chart_scrim"></div></div>    </div>
-{% endif %}
-                    
                     <div><h3>Details</h3><div><div li-object="product.metafields.custom.details" class="rich-text w-richtext">{{ product.metafields.custom.details }}</div></div></div>
                     
                     <div><h3>Shipping</h3><div><div class="rich-text w-richtext"> {{ block.settings.richtext_shipping }} </div>
