@@ -9,16 +9,16 @@
     On Sale    </div>
 {% endif %}</div><a li-object:href="product.url" href="{{ product.url }}" class="u-vflex-left-top u-vgap-4 w-inline-block"><h3 li-object="product.title">{{ product.title }}</h3><div class="u-hflex-left-top u-hgap-8">{% if product.compare_at_price_max > product.price %}    <div li-if="product.compare_at_price_max > product.price">
     <div li-object="product.compare_at_price | money" class="u-style-strikethrough">{{ product.compare_at_price | money }}</div>    </div>
-{% endif %}<div li-object="product.price | money">{{ product.price | money }}</div></div>{% for option in product.options_with_values %}    <div li-for="option in product.options_with_values" class="u-hflex-left-top u-hgap-8">
+{% endif %}<div li-object="product.price | money">{{ product.price | money }}</div></div>{% for option in product.options_with_values %}    <div li-for="option in product.options_with_values">
                                     
                             {% if option.name == 'Color' %}    <div li-if="option.name == 'Color'">
     <div li-object="option.values.first">{{ option.values.first }}</div>    </div>
 {% endif %}
                             
                         </div>
-{% endfor %}{% for option in product.options_with_values %}    <div li-for="option in product.options_with_values" class="u-hflex-left-top u-hgap-8">
+{% endfor %}{% for option in product.options_with_values %}    <div li-for="option in product.options_with_values">
                                     
-                            {% if option.name == 'Size' and option.values.size > 0 %}    <div li-if="option.name == 'Size' and option.values.size > 0">
+                            {% if option.name == 'Size' and option.values.size > 0 %}    <div li-if="option.name == 'Size' and option.values.size > 0" class="u-hflex-left-top u-hgap-8">
     {% for value in option.values %}    <div li-for="value in option.values">
                                     
                             <div li-object="value" class="{% if value.available %}u-style-strikethrough u-color-tertiary{% endif %}">{{ value }}</div>
