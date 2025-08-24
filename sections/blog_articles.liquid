@@ -1,6 +1,6 @@
 {% paginate article in blog.articles by 12 %}
-    <div li-paginate:by="12" li-paginate="article in blog.articles" class="u-vflex-stretch-top u-vgap-40" by="12">
-                {% if blog.articles != blank %}    <div li-if="blog.articles != blank" class="row u-vgap-64">
+    <div li-paginate:by="12" li-paginate="article in blog.articles" class="u-vflex-stretch-top u-vgap-64" by="12">
+                {% if blog.articles != blank %}    <div li-if="blog.articles != blank" class="row u-vgap-40">
     
                   {% for article in blog.articles %}    <div li-for="article in blog.articles" class="col col-lg-6 col-xs-12">
                                     
