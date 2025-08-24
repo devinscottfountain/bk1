@@ -1,14 +1,101 @@
-<div li-block="Extra Info">
+<div li-block="Extra Info" class="accordion_container">
                     
-                    {% if product.metafields.custom.details %}    <div li-if="product.metafields.custom.details">
-    <h3>Details</h3><div><div li-object="product.metafields.custom.details" class="rich-text w-richtext">{{ product.metafields.custom.details }}</div></div>    </div>
+                  
+                    {% if product.metafields.custom.chart_image %}    <div li-if="product.metafields.custom.chart_image">
+    
+                    <div class="sizing_btn u-hflex-left-center u-hgap-8 arrow-link">
+                      <div class="arrow-container">
+                        <div class="u-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" vector-effect="non-scaling-stroke">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 4.5H11.5V11H10.5V6.20711L5.35356 11.3536L4.64645 10.6464L9.7929 5.5H5.00001V4.5Z" fill="currentColor"></path>
+                          </svg></div>
+                        <div class="u-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" vector-effect="non-scaling-stroke">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 4.5H11.5V11H10.5V6.20711L5.35356 11.3536L4.64645 10.6464L9.7929 5.5H5.00001V4.5Z" fill="currentColor"></path>
+                          </svg></div>
+                      </div>
+                      <div class="eyebrow">Sizing Guide</div>
+                    </div>
+                    <div class="chart_modal">
+                      <div class="w-layout-blockcontainer container u-z-index-1 u-h-100 u-vflex-center-center w-container">
+                        <div class="chart_window u-vflex-stretch-top u-vgap-16">
+                          {% if product.metafields.custom.size_tables.value %}    <div li-if="product.metafields.custom.size_tables.value">
+    
+                            <div li-object="product.metafields.custom.size_tables.value">{{ product.metafields.custom.size_tables.value }}</div>
+                              </div>
+{% endif %}<img src="{{ product.metafields.custom.chart_image | image_url: width: 500 }}" loading="lazy" li-object:src="product.metafields.custom.chart_image | image_url: width: 500" alt="">
+                        </div>
+                      </div>
+                      <div class="chart_scrim"></div>
+                    </div>
+                      </div>
 {% endif %}
                     
-                    <div><h3>Shipping</h3><div><div class="rich-text w-richtext"> {{ block.settings.richtext_shipping }} </div>
-</div></div>
+                  
+                    {% if product.metafields.custom.details %}    <div li-if="product.metafields.custom.details" class="accordion_item">
+    
+                    <div class="accordion_top u-hflex-left-center u-hgap-8">
+                      <div class="u-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" vector-effect="non-scaling-stroke">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 4H7.5V7.5H4V8.5H7.5V12H8.5V8.5H12V7.5H8.5V4Z" fill="currentColor"></path>
+                        </svg></div>
+                      <h3 class="eyebrow">Details</h3>
+                    </div>
+                    <div class="accordion_bottom">
+                      <div class="accordion_inner">
+                        <div li-object="product.metafields.custom.details" class="rich-text w-richtext">{{ product.metafields.custom.details }}</div>
+                      </div>
+                    </div>
+                      </div>
+{% endif %}
                     
-                    <div><h3>Terms</h3><div><div class="rich-text w-richtext"> {{ block.settings.richtext_terms }} </div>
-</div></div>
+                  
+                    <div class="accordion_item">
+                    <div class="accordion_top u-hflex-left-center u-hgap-8">
+                      <div class="u-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" vector-effect="non-scaling-stroke">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 4H7.5V7.5H4V8.5H7.5V12H8.5V8.5H12V7.5H8.5V4Z" fill="currentColor"></path>
+                        </svg></div>
+                      <h3 class="eyebrow">Shipping</h3>
+                    </div>
+                    <div class="accordion_bottom">
+                      <div class="accordion_inner">
+                        <div class="rich-text w-richtext"> {{ block.settings.richtext_shipping }} </div>
+                      </div>
+                    </div>
+                  </div>
                     
-                </div>
-     {% schema %} {"name":"Extra Info","settings":[{"id":"richtext_shipping","type":"richtext","label":"Shipping","default":"<p>\n                        For U.S. orders, we ship via USPS Ground Advantage, FedEx Ground Economy, or FedEx Home Delivery based on package size. International orders are shipped using FedEx International Economy.\n                        Orders are fulfilled by our third-party warehouse, Shipbots, in Gardena, CA. They don\u2019t ship on weekends, but typically ship same-day if the order is placed before 12 PM PST. Orders placed after 12 PM ship the next business day.\n            <\/p>"},{"id":"richtext_terms","type":"richtext","label":"Terms","default":"<p>\n                        We allow exchanges for a new size or returns for store credit. Shoot us an email to get the process started. We are not able to offer returns for refunds at this time. We have provided detailed measurements of each product to help you make the best sizing choice. We hope you understand.\n                        If there is an error on our part (due to wrong size or damage), please email us at <a href=\"mailto:info@bareknuckles.co\" target=\"_blank\">info@b<\/p>"}],"presets":[{"name":"Extra Info"}]} {% endschema %}
+                  
+                    <div class="accordion_item">
+                    <div class="accordion_top u-hflex-left-center u-hgap-8">
+                      <div class="u-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" vector-effect="non-scaling-stroke">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 4H7.5V7.5H4V8.5H7.5V12H8.5V8.5H12V7.5H8.5V4Z" fill="currentColor"></path>
+                        </svg></div>
+                      <h3 class="eyebrow">Terms</h3>
+                    </div>
+                    <div class="accordion_bottom">
+                      <div class="accordion_inner">
+                        <div class="rich-text w-richtext"> {{ block.settings.richtext_terms }} </div>
+                      </div>
+                    </div>
+                  </div>
+                    
+                
+                </div> {% schema %} {
+    "name": "Extra Info",
+    "settings": [
+        {
+            "id": "richtext_shipping",
+            "type": "richtext",
+            "label": "Shipping",
+            "default": "<p>\n                          For U.S. orders, we ship via USPS Ground Advantage, FedEx Ground Economy, or FedEx Home Delivery based on package size. International orders are shipped using FedEx International Economy.\n                          Orders are fulfilled by our third-party warehouse, Shipbots, in Gardena, CA. They don\u2019t ship on weekends, but typically ship same-day if the order is placed before 12 PM PST. Orders placed after 12 PM ship the next business day.\n        <\/p>"
+        },
+        {
+            "id": "richtext_terms",
+            "type": "richtext",
+            "label": "Terms",
+            "default": "<p>\n                          We allow exchanges for a new size or returns for store credit. Shoot us an email to get the process started. We are not able to offer returns for refunds at this time. We have provided detailed measurements of each product to help you make the best sizing choice. We hope you understand.\n                          If there is an error on our part (due to wrong size or damage), please email us at <a href=\"mailto:info@bareknuckles.co\" target=\"_blank\">in<\/p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Extra Info"
+        }
+    ]
+} {% endschema %}

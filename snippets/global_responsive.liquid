@@ -1,11 +1,25 @@
-<style>/* Tablet */
+<style>
+  /* Tablet */
   @media screen and (max-width: 991px) {
   }
   /* Mobile Landscape */
   @media screen and (max-width: 767px) {
+    /* The animation code */
+    @keyframes star-loop {
+      from {
+        transform: rotateZ(0deg);
+      }
+      to {
+        transform: rotateZ(360deg);
+      }
+    }
+    .nav_star .u-icon {
+      animation: star-loop 4s infinite linear;
+    }
   }
   /* Mobile Portrait */
   @media screen and (max-width: 479px) {
+    .product_item-soldout { backdrop-filter: blur(0); }
   }
   /* Hover effects media query where hover effects only work on devices that CAN hover */
   @media (hover: hover) {
@@ -14,10 +28,50 @@
       height: 0;
       width: 0;
     }
-    .product_item-link:hover {
-    	.product_item-alt {
-      	visibility: visible;
-     }
+    .btn-link {
+      position: relative;
+    }
+    .btn-link::after {
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      background-color: currentColor;
+      bottom: -0.0625em;
+      content: "";
+      height: 0.0625em;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+    .btn-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    .arrow-link:has(.arrow-container) .arrow-container {
+      .u-icon:last-child {
+        left: -100%;
+        top: 100%;
+        position: absolute;
+      }
+    }
+    .product-item_component {
+      & {
+        .product_item-detail a>div:last-child { visibility: hidden; }
+        .product_item-soldout { transition: 1.2s cubic-bezier(0.16, 1, 0.3, 1) backdrop-filter; }
+      }
+      &:hover {
+        .product_item-detail a>div:last-child,  .product_item-alt { visibility: visible; }
+        .product_item-detail a>div:first-child { visibility: hidden; }
+        .product_item-soldout { backdrop-filter: blur(0); }
+      }
+    }
+    .accordion_container {
+      &>div {
+      	transition: 0.6s opacity cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      &:has(> :hover) > div:not(:hover) { 
+        opacity: 0.38;
+      }
     }
   }
 </style>

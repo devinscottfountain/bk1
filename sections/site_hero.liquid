@@ -1,6 +1,65 @@
-<div class="w-layout-blockcontainer container w-container"><div class="row row-center-horizontal row-center-vertical"><div class="col col-lg-3"><div>
+<div class="w-layout-blockcontainer container w-container">
+          <div class="row row-center-horizontal row-center-vertical u-vgap-40">
+            <div class="col col-sm-6">
+              <div class="eyebrow">
 {{ section.settings.text_left_text }}
 </div>
-</div><div class="col col-lg-6"><a href="{{ section.settings.url_hero_link }}" class="w-inline-block"> <h1 class="u-align-center">{{ section.settings.text_heading }}</h1><img src="{{ section.settings.image_hero_image | img_url: 'master' }}" loading="lazy" alt="{{ section.settings.image_hero_image.alt }}"> </a>
-</div><div class="col col-lg-3"><div class="u-vflex-right-center"><a href="{{ section.settings.url_right_link }}"> {{ section.settings.text_right_text }} </a>
-</div></div></div></div> {% schema %} {"tag":"section","name":"Site Hero","class":"section","settings":[{"id":"text_left_text","type":"text","label":"Left Text","default":"New Arrivals"},{"id":"url_hero_link","type":"url","label":"Hero Link"},{"id":"text_heading","type":"text","label":"Heading","default":"Short heading here"},{"id":"image_hero_image","type":"image_picker","label":"hero_image"},{"id":"url_right_link","type":"url","label":"Right-Link"},{"id":"text_right_text","type":"text","label":"Right Text","default":"Button Text"}],"presets":[{"name":"Site Hero","category":"Liquify","blocks":[]}]} {% endschema %}
+            </div>
+            <div class="col col-lg-6 col-sm-first col-sm-12">
+              <div class="u-vflex-center-center">
+                <a href="{{ section.settings.url_hero_link }}" class="hero-link w-inline-block"> <h1 class="hero-text u-z-index-1 u-align-center h2">{{ section.settings.text_heading }}</h1> <div class="u-p-relative">{% if section.settings.image_hero_image %} {{ section.settings.image_hero_image | image_url: width: 1216 | image_tag: loading: 'lazy', class: 'u-aspect-product' }} {% else %} <img src="{{ 'BLUEDENIM.webp' | asset_url }}" loading="lazy" alt="" class="u-aspect-product"> {% endif %} <div class="u-p-absolute cc-full u-bg-border-invert"></div> </div> </a>
+              </div>
+            </div>
+            <div class="col">
+              <div class="u-vflex-right-center">
+                <a href="{{ section.settings.url_right_link }}" class="arrow-link w-inline-block"> <div class="arrow-container"> <div class="u-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" vector-effect="non-scaling-stroke"> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 4.5H11.5V11H10.5V6.20711L5.35356 11.3536L4.64645 10.6464L9.7929 5.5H5.00001V4.5Z" fill="currentColor"></path> </svg></div> <div class="u-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 16 16" fill="none" vector-effect="non-scaling-stroke"> <path fill-rule="evenodd" clip-rule="evenodd" d="M5.00001 4.5H11.5V11H10.5V6.20711L5.35356 11.3536L4.64645 10.6464L9.7929 5.5H5.00001V4.5Z" fill="currentColor"></path> </svg></div> </div> <div class="eyebrow">{{ section.settings.text_right_text }}</div> </a>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Site Hero",
+    "class": "hero section",
+    "settings": [
+        {
+            "id": "text_left_text",
+            "type": "text",
+            "label": "Left Text",
+            "default": "New Arrivals"
+        },
+        {
+            "id": "url_hero_link",
+            "type": "url",
+            "label": "Hero Link"
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Javier Wide Leg Jeans, Riviera Blue"
+        },
+        {
+            "id": "image_hero_image",
+            "type": "image_picker",
+            "label": "hero_image"
+        },
+        {
+            "id": "url_right_link",
+            "type": "url",
+            "label": "Right-Link"
+        },
+        {
+            "id": "text_right_text",
+            "type": "text",
+            "label": "Right Text",
+            "default": "Shop All"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Site Hero",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

@@ -1,6 +1,44 @@
-<style>:root {
+<style>
+  :root {
     /* Custom variables go here. */
     interpolate-size: allow-keywords;
+  }
+  @media (prefers-color-scheme: light) {
+    option {
+      color: black;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+  	:root {
+    	--background--primary: var(--_colors---all--black-100);
+      --background--invert: var(--_colors---all--white-100);
+      --background--secondary: var(--_colors---all--black-64);
+      --background--invert-secondary: var(--_colors---all--white-64);
+      --background--border: var(--_colors---all--white-12);
+      --background--invert-border: var(--_colors---all--black-38);
+      --text--primary: var(--_colors---all--white-100);
+      --text--secondary: var(--_colors---all--white-64);
+      --text--tertiary: var(--_colors---all--white-38);
+      --text--invert: var(--_colors---all--black-100);
+      /* Button Primary */
+      --button-primary--text: var(--_colors---all--black-100);
+      --button-primary--background: var(--_colors---all--white-100);
+      --button-primary--border: var(--button-primary--background);
+      /* Button Primary Hover States */
+      --button-primary--text-hover: var(--_colors---all--black-64);
+      --button-primary--background-hover: var(--_colors---all--white-64);
+      --button-primary--border-hover: var(--_colors---all--white-64);
+      /* Button Secondary */
+      --button-secondary--text: var(--_colors---all--white-100);
+      --button-secondary--border: var(--_colors---all--white-100);
+      /* Button Secondary Hover States */
+      --button-secondary--text-hover: var(--_colors---all--black-100);
+      --button-secondary--background-hover: var(--_colors---all--white-100);
+      --button-secondary--border-hover: var(--_colors---all--white-100);
+      /* Sale Color */
+      --background--sale: var(--_colors---all--red-dark);
+      --text--sale: var(--_colors---all--red-dark);
+    }
   }
   ::before, ::after {
     box-sizing: border-box;
@@ -54,9 +92,9 @@
   .w-form-formradioinput--inputType-custom.w--redirected-focus {
     box-shadow: none;
   }
-  @media (prefers-color-scheme: light) {
-    option {
-      color: black;
+  .product-header_radio-button.w--redirected-checked {
+  	& ~ .eyebrow {
+    	color: var(--text--invert);
     }
   }
 </style>

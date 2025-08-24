@@ -1,2 +1,27 @@
-<div class="w-layout-blockcontainer container w-container"><div class="row row-center-vertical"><div class="col col-lg-4 col-md-6 col-sm-12"><div class="u-vflex-left-top u-vgap-16"><div li-object="article.published_at | date: '%B %d, %Y'">{{ article.published_at | date: '%B %d, %Y' }}</div><h1 li-object="article.title">{{ article.title }}</h1></div></div><div class="col col-lg-8 col-md-6 col-sm-12"><img src="{{ article.image | image_url: width: 1000 }}" loading="lazy" li-object:src="article.image | image_url: width: 1000" li-object:alt="article.image.alt" alt="{{ article.image.alt }}">
-</div></div></div> {% schema %} {"tag":"section","name":"Article Hero","class":"section u-pb-0","presets":[{"name":"Article Hero","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["article"]}} {% endschema %}
+<div class="w-layout-blockcontainer container w-container">
+          <div class="row row-center-vertical u-vgap-24">
+            <div class="col col-lg-4 col-md-6 col-sm-12">
+              <div class="u-vflex-left-top u-vgap-16">
+                <div li-object="article.published_at | date: '%B %d, %Y'" class="eyebrow u-color-secondary">{{ article.published_at | date: '%B %d, %Y' }}</div>
+                <h1 li-object="article.title">{{ article.title }}</h1>
+              </div>
+            </div>
+            <div class="col col-lg-8 col-md-6 col-sm-12"><img src="{{ article.image | image_url: width: 1000 }}" loading="lazy" li-object:src="article.image | image_url: width: 1000" li-object:alt="article.image.alt" alt="{{ article.image.alt }}"></div>
+          </div>
+        </div> {% schema %} {
+    "tag": "section",
+    "name": "Article Hero",
+    "class": "section u-pb-0",
+    "presets": [
+        {
+            "name": "Article Hero",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "article"
+        ]
+    }
+} {% endschema %}
