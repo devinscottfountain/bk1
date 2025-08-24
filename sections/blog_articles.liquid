@@ -1,32 +1,88 @@
 {% paginate article in blog.articles by 12 %}
-    <div li-paginate:by="12" li-paginate="article in blog.articles" class="u-vflex-stretch-top u-vgap-40" by="12">{% if blog.articles != blank %}    <div li-if="blog.articles != blank" class="row u-vgap-64">
-    {% for article in blog.articles %}    <div li-for="article in blog.articles" class="col col-lg-6 col-xs-12">
+    <div li-paginate:by="12" li-paginate="article in blog.articles" class="u-vflex-stretch-top u-vgap-40" by="12">
+                {% if blog.articles != blank %}    <div li-if="blog.articles != blank" class="row u-vgap-64">
+    
+                  {% for article in blog.articles %}    <div li-for="article in blog.articles" class="col col-lg-6 col-xs-12">
                                     
+                    
                             <a li-object:href="article.url" href="{{ article.url }}" class="blog_item u-vflex-stretch-top u-vgap-16 w-inline-block"><img src="{{ article.image | image_url: width: 908 }}" loading="lazy" li-object:alt="article.image.alt" li-object:src="article.image | image_url: width: 908" alt="{{ article.image.alt }}" class="u-aspect-4x5">
-<h3 li-object="article.title">{{ article.title }}</h3></a>
+                      <h3 li-object="article.title" class="eyebrow">{{ article.title }}</h3>
+                    </a>
                             
+                  
                         </div>
-{% endfor %}    </div>
-{% endif %}{% if paginate.pages > 1 %}    <nav li-if="paginate.pages > 1" class="pagination_component">
-    <ul role="list" class="pagination_list w-list-unstyled">{% if paginate.previous %}    <li li-if="paginate.previous" class="pagination_item">
-    <a li-object:href="paginate.previous.url" href="{{ paginate.previous.url }}" class="w-inline-block"><div>Back</div></a>    </li>
-{% endif %}{% if paginate.previous == false %}    <li li-if="paginate.previous == false" class="pagination_item">
-    <a li-object:href="paginate.previous.url" href="{{ paginate.previous.url }}" class="w-inline-block"><div>Back disabled</div></a>    </li>
-{% endif %}{% for part in paginate.parts %}    <li li-for="part in paginate.parts" class="pagination_item">
-                                    
-                            {% if part.is_link %}    <div li-if="part.is_link">
-    <a li-object:href="part.url" href="{{ part.url }}" class="pagination_count w-inline-block"><div li-object="part.title" class="text-style-link">{{ part.title }}</div></a>    </div>
+{% endfor %}
+                    </div>
 {% endif %}
-                            
-                            {% if part.is_link == false %}    <div li-if="part.is_link == false">
-    <div li-object="part.title" class="{% if part.title == paginate.current_page %}text-weight-semibold{% endif %}">{{ part.title }}</div>    </div>
-{% endif %}
-                            
+                {% if paginate.pages > 1 %}    <nav li-if="paginate.pages > 1" class="pagination_component">
+    
+                  <ul role="list" class="pagination_list w-list-unstyled">
+                    {% if paginate.previous %}    <li li-if="paginate.previous" class="pagination_item">
+    
+                      <a li-object:href="paginate.previous.url" href="{{ paginate.previous.url }}" class="w-inline-block">
+                        <div class="eyebrow">Back</div>
+                      </a>
                         </li>
-{% endfor %}{% if paginate.next == false %}    <li li-if="paginate.next == false" class="pagination_item">
-    <a li-object:href="paginate.next.url" href="{{ paginate.next.url }}" class="w-inline-block"><div>Pagination Disabled</div></a>    </li>
-{% endif %}{% if paginate.next %}    <li li-if="paginate.next" class="pagination_item">
-    <a li-object:href="paginate.next.url" href="{{ paginate.next.url }}" class="w-inline-block"><div>Next</div></a>    </li>
-{% endif %}</ul>    </nav>
-{% endif %}</div>{% endpaginate %}
- {% schema %} {"tag":"div","name":"Blog-Articles","class":"col col-lg-8 col-sm-12","presets":[{"name":"Blog-Articles","category":"Liquify","blocks":[]}],"enabled_on":{"templates":["blog"]}} {% endschema %}
+{% endif %}
+                    {% if paginate.previous == false %}    <li li-if="paginate.previous == false" class="pagination_item">
+    
+                      <a li-object:href="paginate.previous.url" href="{{ paginate.previous.url }}" class="w-inline-block">
+                        <div class="eyebrow u-color-tertiary">Back</div>
+                      </a>
+                        </li>
+{% endif %}
+                    {% for part in paginate.parts %}    <li li-for="part in paginate.parts" class="pagination_item">
+                                    
+                      
+                            {% if part.is_link %}    <div li-if="part.is_link">
+    
+                        <a li-object:href="part.url" href="{{ part.url }}" class="pagination_count w-inline-block">
+                          <div li-object="part.title" class="eyebrow">{{ part.title }}</div>
+                        </a>
+                          </div>
+{% endif %}
+                            
+                      
+                            {% if part.is_link == false %}    <div li-if="part.is_link == false">
+    
+                        <div li-object="part.title" class="{% if part.title == paginate.current_page %}text-weight-semibold{% endif %}">{{ part.title }}</div>
+                          </div>
+{% endif %}
+                            
+                    
+                        </li>
+{% endfor %}
+                    {% if paginate.next == false %}    <li li-if="paginate.next == false" class="pagination_item">
+    
+                      <a li-object:href="paginate.next.url" href="{{ paginate.next.url }}" class="w-inline-block">
+                        <div class="eyebrow u-color-tertiary">Next</div>
+                      </a>
+                        </li>
+{% endif %}
+                    {% if paginate.next %}    <li li-if="paginate.next" class="pagination_item">
+    
+                      <a li-object:href="paginate.next.url" href="{{ paginate.next.url }}" class="w-inline-block">
+                        <div class="eyebrow">Next</div>
+                      </a>
+                        </li>
+{% endif %}
+                  </ul>
+                    </nav>
+{% endif %}
+              </div>{% endpaginate %} {% schema %} {
+    "tag": "div",
+    "name": "Blog-Articles",
+    "class": "col col-lg-8 col-sm-12",
+    "presets": [
+        {
+            "name": "Blog-Articles",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ],
+    "enabled_on": {
+        "templates": [
+            "blog"
+        ]
+    }
+} {% endschema %}
