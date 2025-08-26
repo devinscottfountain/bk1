@@ -12,6 +12,12 @@
     "product_hero": {
       "type": "product_hero",
       "blocks": {
+        "product_name_qAM6dg": {
+          "type": "product-name",
+          "name": "Product Name",
+          "settings": {},
+          "blocks": {}
+        },
         "add-to-cart": {
           "type": "add-to-cart",
           "name": "Add to Cart",
@@ -32,6 +38,7 @@
         }
       },
       "block_order": [
+        "product_name_qAM6dg",
         "add-to-cart",
         "extra_info_WaFmEf"
       ],
