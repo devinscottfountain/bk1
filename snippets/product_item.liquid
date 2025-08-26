@@ -32,7 +32,7 @@
                             </div>
                           </div>
                           <div class="u-vflex-stretch-top u-vgap-4 u-w-100 u-p-absolute u-xs-hide">
-                            {% for option in product.options_with_values %}    <div li-for="option in product.options_with_values" class="product_item-options">
+                            {% for option in product.options_with_values[0] %}    <div li-for="option in product.options_with_values[0]" class="product_item-options">
                                     
                               
                             {% if option.name == 'Color' %}    <div li-if="option.name == 'Color'">
