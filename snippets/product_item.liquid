@@ -32,7 +32,7 @@
                             </div>
                           </div>
                           <div class="u-vflex-stretch-top u-vgap-4 u-w-100 u-p-absolute u-xs-hide">
-                            {% for option in product.options_with_values[0] %}    <div li-for="option in product.options_with_values[0]" class="product_item-options">
+                            {% for option in product.options_with_values[1] %}    <div li-for="option in product.options_with_values[1]" class="product_item-options">
                                     
                               
                             {% if option.name == 'Color' %}    <div li-if="option.name == 'Color'">
@@ -52,7 +52,7 @@
                                 {% for value in option.values %}    <div li-for="value in option.values">
                                     
                                   
-                            <div li-object="value" class="{% if value.available %}u-color-tertiary{% endif %}">{{ value }}</div>
+                            <div li-object="value" class="{% if value.available %}u-color-tertiary u-style-strikethrough{% endif %}">{{ value }}</div>
                             
                                 
                         </div>
