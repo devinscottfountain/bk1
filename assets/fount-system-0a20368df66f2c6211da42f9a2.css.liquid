@@ -84,8 +84,9 @@
   --_components---button--vertical-padding: var(--_spacing---rems--0-75rem);
   --_components---button--horizontal-padding: var(--_spacing---rems--1rem);
   --_spacing---rems--0-5rem: .5rem;
-  --button-primary--border: var(--_colors---all--transparent);
   --button-primary--background: var(--_colors---all--black-100);
+  --_spacing---rems--1px: .0625rem;
+  --button-primary--border: var(--_colors---all--transparent);
   --_components---button--font: var(--_typography---eyebrow--font);
   --button-primary--text: var(--_colors---all--white-100);
   --_components---button--font-size: var(--_typography---eyebrow--font-size);
@@ -96,6 +97,7 @@
   --button-secondary--background: var(--_colors---all--transparent);
   --button-secondary--text: var(--_colors---all--black-100);
   --button-primary--background-hover: var(--_colors---all--black-64);
+  --button-primary--border-hover: var(--_colors---all--transparent);
   --button-primary--text-hover: var(--_colors---all--white-100);
   --button-secondary--border-hover: var(--_colors---all--black-100);
   --button-secondary--background-hover: var(--_colors---all--black-100);
@@ -181,7 +183,6 @@
   --background--sale: var(--_colors---all--red-light);
   --text--invert: var(--_colors---all--white-100);
   --text--invert-tertiary: var(--_colors---all--white-38);
-  --button-primary--border-hover: var(--_colors---all--transparent);
   --text-selection--text: var(--text--invert);
   --text-selection--background: var(--background--invert);
   --_colors---all--black-64: color-mix(in hsl, var(--_colors---all--black-100) 64%, var(--_colors---all--transparent));
@@ -195,7 +196,6 @@
   --_components---button--border-radius: var(--_spacing---rems--0-5rem);
   --_typography---eyebrow--bottom-margin: 1.5em;
   --_components---input-field--border-radius: var(--_spacing---rems--0-5rem);
-  --_spacing---rems--1px: .0625rem;
   --_spacing---rems--0-875rem: .875rem;
   --_spacing---rems--1-125rem: 1.125rem;
   --_spacing---rems--4-5rem: 4.5rem;
@@ -635,8 +635,8 @@ figcaption {
   padding: var(--_components---button--vertical-padding) var(--_components---button--horizontal-padding);
   grid-column-gap: var(--_spacing---rems--0-5rem);
   grid-row-gap: var(--_spacing---rems--0-5rem);
-  border: 1px solid var(--button-primary--border);
   background-color: var(--button-primary--background);
+  box-shadow: 0 0 0 var(--_spacing---rems--1px) var(--button-primary--border);
   font-family: var(--_components---button--font);
   color: var(--button-primary--text);
   font-size: var(--_components---button--font-size);
@@ -658,9 +658,10 @@ figcaption {
 }
 
 .btn:hover {
-  border-color: var(--button-primary--background-hover);
   background-color: var(--button-primary--background-hover);
+  box-shadow: 0 0 0 var(--_spacing---rems--1px) var(--button-primary--border-hover);
   color: var(--button-primary--text-hover);
+  border-style: none;
 }
 
 .btn:hover:where(.w-variant-29a1217e-93c5-c808-12b7-1e2c96c94504) {
@@ -687,6 +688,7 @@ figcaption {
 
 .btn.cc-disabled {
   background-color: var(--background--border);
+  box-shadow: 0 0 0 var(--_spacing---rems--1px) var(--background--border);
   pointer-events: none;
   color: var(--text--secondary);
   border-style: none;
@@ -1706,13 +1708,14 @@ figcaption {
   color: var(--text--primary);
   --background--primary: var(--_colors---all--white-100);
   --text--primary: var(--_colors---all--black-100);
-  --button-primary--border: var(--_colors---all--transparent);
   --button-primary--background: var(--_colors---all--black-100);
+  --button-primary--border: var(--_colors---all--transparent);
   --button-primary--text: var(--_colors---all--white-100);
   --button-secondary--border: var(--_colors---all--black-100);
   --button-secondary--background: var(--_colors---all--transparent);
   --button-secondary--text: var(--_colors---all--black-100);
   --button-primary--background-hover: var(--_colors---all--black-64);
+  --button-primary--border-hover: var(--_colors---all--transparent);
   --button-primary--text-hover: var(--_colors---all--white-100);
   --button-secondary--border-hover: var(--_colors---all--black-100);
   --button-secondary--background-hover: var(--_colors---all--black-100);
@@ -1741,7 +1744,6 @@ figcaption {
   --background--sale: var(--_colors---all--red-light);
   --text--invert: var(--_colors---all--white-100);
   --text--invert-tertiary: var(--_colors---all--white-38);
-  --button-primary--border-hover: var(--_colors---all--transparent);
   --text-selection--text: var(--text--invert);
   --text-selection--background: var(--background--invert);
 }
@@ -1751,13 +1753,14 @@ figcaption {
   color: var(--text--primary);
   --background--primary: var(--_colors---all--black-100);
   --text--primary: var(--_colors---all--white-100);
-  --button-primary--border: var(--_colors---all--transparent);
   --button-primary--background: var(--_colors---all--black-100);
+  --button-primary--border: var(--_colors---all--transparent);
   --button-primary--text: var(--_colors---all--white-100);
   --button-secondary--border: var(--_colors---all--black-100);
   --button-secondary--background: var(--_colors---all--transparent);
   --button-secondary--text: var(--text--primary);
   --button-primary--background-hover: var(--_colors---all--black-64);
+  --button-primary--border-hover: var(--_colors---all--transparent);
   --button-primary--text-hover: var(--_colors---all--white-100);
   --button-secondary--border-hover: var(--_colors---all--black-100);
   --button-secondary--background-hover: var(--_colors---all--black-100);
@@ -1786,7 +1789,6 @@ figcaption {
   --background--sale: var(--_colors---all--red-light);
   --text--invert: var(--_colors---all--black-100);
   --text--invert-tertiary: var(--_colors---all--black-38);
-  --button-primary--border-hover: var(--_colors---all--transparent);
   --text-selection--text: var(--text--invert);
   --text-selection--background: var(--background--invert);
 }
@@ -2086,22 +2088,29 @@ figcaption {
   display: none;
 }
 
+.swiper-wrapper {
+  grid-column-gap: var(--_layout---columns--size);
+  grid-row-gap: var(--_layout---columns--size);
+  flex-flow: column;
+  display: flex;
+}
+
 .product-header_add-to-cart-wrapper {
-  grid-column-gap: .5rem;
-  grid-row-gap: .5rem;
+  grid-column-gap: var(--_spacing---rems--0-5rem);
+  grid-row-gap: var(--_spacing---rems--0-5rem);
   flex-direction: column;
   display: flex;
 }
 
 .product-header_radio {
-  padding: var(--_spacing---rems--0-25rem);
+  padding: var(--_spacing---rems--0-25rem) var(--_spacing---rems--0-5rem);
   cursor: pointer;
   position: relative;
 }
 
 .product-header_radio-list {
-  grid-column-gap: .5rem;
-  grid-row-gap: .5rem;
+  grid-column-gap: var(--_spacing---rems--0-5rem);
+  grid-row-gap: var(--_spacing---rems--0-25rem);
   flex-wrap: wrap;
   display: flex;
 }
@@ -2152,6 +2161,12 @@ figcaption {
 .product-header_buy-wrappper {
   grid-column-gap: .5rem;
   grid-row-gap: .5rem;
+  flex-flow: column;
+  display: flex;
+}
+
+.product-header_out-of-stock {
+  flex-flow: column;
   display: flex;
 }
 
@@ -2332,6 +2347,11 @@ figcaption {
   overflow: clip;
 }
 
+.arrow-container.cc-reverse {
+  transform-style: preserve-3d;
+  transform: rotateX(0)rotateY(180deg)rotateZ(0);
+}
+
 .arrow-link {
   grid-column-gap: var(--_spacing---rems--0-5rem);
   grid-row-gap: var(--_spacing---rems--0-5rem);
@@ -2345,7 +2365,6 @@ figcaption {
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  max-width: 60svh;
   display: flex;
   position: relative;
 }
@@ -2356,6 +2375,8 @@ figcaption {
 
 .hero-text {
   position: absolute;
+  left: -10%;
+  right: -10%;
 }
 
 .u-parallax {
@@ -2370,6 +2391,20 @@ figcaption {
   justify-content: center;
   align-items: stretch;
   display: flex;
+}
+
+.product_header {
+  grid-column-gap: var(--_spacing---rems--4rem);
+  grid-row-gap: var(--_spacing---rems--4rem);
+  top: calc(var(--_spacing---rems--3rem)  + var(--_layout---section--padding));
+  flex-flow: column;
+  display: flex;
+  position: sticky;
+  overflow: scroll;
+}
+
+.hero_image {
+  max-width: 60svh;
 }
 
 @media screen and (max-width: 991px) {
@@ -2691,6 +2726,21 @@ figcaption {
     display: flex;
   }
 
+  .swiper-slide {
+    flex: none;
+    width: 100%;
+  }
+
+  .swiper-wrapper {
+    grid-column-gap: var(--_spacing---rems--0rem);
+    grid-row-gap: var(--_spacing---rems--0rem);
+    display: flex;
+  }
+
+  .swiper {
+    overflow: clip;
+  }
+
   .nav_open {
     z-index: 9;
     cursor: pointer;
@@ -2713,6 +2763,11 @@ figcaption {
     padding-top: var(--_layout---columns--size);
     padding-bottom: var(--_layout---columns--size);
     height: auto;
+  }
+
+  .product_header {
+    position: static;
+    overflow: visible;
   }
 }
 

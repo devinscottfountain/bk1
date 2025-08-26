@@ -6,7 +6,7 @@
 <div class="product-header_add-to-cart-wrapper">
                         {% if product.has_only_default_variant != true %}    <div li-if="product.has_only_default_variant != true" class="product-header_option-list">
     
-                          <div li-for:inside="option in product.options_with_values">
+                          <div li-for:inside="option in product.options_with_values" class="u-vflex-stretch-top u-vgap-24">
         {% for option in product.options_with_values %}                            
                             
                             {% unless option == 'Color' %}    <div li-unless="option == 'Color'" class="product-header_option">
@@ -30,14 +30,14 @@
 {% endif %}
                         {% if product.selected_or_first_available_variant.available == true %}    <div li-if="product.selected_or_first_available_variant.available == true" class="product-header_buy-wrappper">
     
-                          <a li-element="add-to-cart" href="#" class="btn u-w-100 w-button" @click="addToCart($event, true)" :disabled="!addToCartButton"><span>
+                          <a li-element="add-to-cart" href="#" class="btn w-button" @click="addToCart($event, true)" :disabled="!addToCartButton"><span>
 {{ block.settings.text_add_to_cart }}
 </span></a>
                             </div>
 {% endif %}
                         {% if product.selected_or_first_available_variant.available == false %}    <div li-if="product.selected_or_first_available_variant.available == false" class="product-header_out-of-stock">
     
-                          <a href="#" class="btn cc-disabled u-w-100 w-button" href="#">
+                          <a href="#" class="btn cc-disabled w-button" href="#">
 {{ block.settings.text_not_in_stock }}
 </a>
                             </div>

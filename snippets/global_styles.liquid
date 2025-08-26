@@ -92,9 +92,16 @@
   .w-form-formradioinput--inputType-custom.w--redirected-focus {
     box-shadow: none;
   }
+  /* Style radio when selected */
   .product-header_radio-button.w--redirected-checked {
   	& ~ .eyebrow {
     	color: var(--text--invert);
+    }
+  }
+  /* Hide product item option when none are available on hover */
+  .product_item-options {
+  	&:empty > div {
+    	display: none;
     }
   }
 </style>
