@@ -12,12 +12,6 @@
     "product_hero": {
       "type": "product_hero",
       "blocks": {
-        "product-name": {
-          "type": "product-name",
-          "name": "Product Name",
-          "settings": {},
-          "blocks": {}
-        },
         "add-to-cart": {
           "type": "add-to-cart",
           "name": "Add to Cart",
@@ -31,14 +25,13 @@
           "type": "extra-info",
           "name": "Extra Info",
           "settings": {
-            "richtext_shipping": "<p><br/>                        For U.S. orders, we ship via USPS Ground Advantage, FedEx Ground Economy, or FedEx Home Delivery based on package size. International orders are shipped using FedEx International Economy.<br/>                        Orders are fulfilled by our third-party warehouse, Shipbots, in Gardena, CA. They don’t ship on weekends, but typically ship same-day if the order is placed before 12 PM PST. Orders placed after 12 PM ship the next business day.<br/>            </p>",
-            "richtext_terms": "<p>We allow exchanges for a new size or returns for store credit. Shoot us an email to get the process started. We are not able to offer returns for refunds at this time. We have provided detailed measurements of each product to help you make the best sizing choice. We hope you understand.</p><p>If there is an error on our part (due to wrong size or damage), please email us at <a href=\"mailto:info@bareknuckles.co\" target=\"_blank\">info@bareknuckles.co</a> and we will get it sorted out. Thank you for understanding.</p><p>BARE KNUCKLES will not accept any items that have been worn, washed, or altered for any reason. We are not responsible for normal wear and tear.</p><p>Sale items are final sale.</p>"
+            "richtext_shipping": "<p>For U.S. orders, we ship via USPS Ground Advantage, FedEx Ground Economy, or FedEx Home Delivery based on package size. International orders are shipped using FedEx International Economy.</p><p>Orders are fulfilled by our third-party warehouse, Shipbots, in Gardena, CA. They don’t ship on weekends, but typically ship same-day if the order is placed before 12 PM PST. Orders placed after 12 PM ship the next business day.</p><p>All international orders are shipped DDP (Delivered Duty Paid). At checkout, international customers will see upfront charges for shipping, duties, and taxes—ensuring no surprise customs fees. These charges vary by country.</p><p>At checkout, customers can opt into Route, which covers lost, stolen, or damaged packages. If Route is declined, BARE KNUCKLES is not liable for reimbursement.</p>",
+            "richtext_terms": "<p>We allow exchanges for a new size or returns for store credit. Shoot us an email to get the process started. We are not able to offer returns for refunds at this time. We have provided detailed measurements of each product to help you make the best sizing choice. We hope you understand.If there is an error on our part (due to wrong size or damage), please email us at <a href=\"mailto:info@bareknuckles.co\" target=\"_blank\">info@bareknuckles.co</a> and we will get it sorted out. Thank you for understanding.</p><p>BARE KNUCKLES will not accept any items that have been worn, washed, or altered for any reason. We are not responsible for normal wear and tear.</p><p>Sale items are final sale.</p>"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "product-name",
         "add-to-cart",
         "extra_info_WaFmEf"
       ],
