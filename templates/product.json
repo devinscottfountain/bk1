@@ -18,14 +18,6 @@
           "settings": {},
           "blocks": {}
         },
-        "description": {
-          "type": "description",
-          "name": "Description",
-          "settings": {
-            "text_heading": "Description"
-          },
-          "blocks": {}
-        },
         "add-to-cart": {
           "type": "add-to-cart",
           "name": "Add to Cart",
@@ -39,15 +31,14 @@
           "type": "extra-info",
           "name": "Extra Info",
           "settings": {
-            "richtext_shipping": "<p>\n                        For U.S. orders, we ship via USPS Ground Advantage, FedEx Ground Economy, or FedEx Home Delivery based on package size. International orders are shipped using FedEx International Economy.\n                        Orders are fulfilled by our third-party warehouse, Shipbots, in Gardena, CA. They don’t ship on weekends, but typically ship same-day if the order is placed before 12 PM PST. Orders placed after 12 PM ship the next business day.\n            </p>",
-            "richtext_terms": "<p>\n                        We allow exchanges for a new size or returns for store credit. Shoot us an email to get the process started. We are not able to offer returns for refunds at this time. We have provided detailed measurements of each product to help you make the best sizing choice. We hope you understand.\n                        If there is an error on our part (due to wrong size or damage), please email us at <a href=\"mailto:info@bareknuckles.co\" target=\"_blank\">info@b</p>"
+            "richtext_shipping": "<p><br/>                        For U.S. orders, we ship via USPS Ground Advantage, FedEx Ground Economy, or FedEx Home Delivery based on package size. International orders are shipped using FedEx International Economy.<br/>                        Orders are fulfilled by our third-party warehouse, Shipbots, in Gardena, CA. They don’t ship on weekends, but typically ship same-day if the order is placed before 12 PM PST. Orders placed after 12 PM ship the next business day.<br/>            </p>",
+            "richtext_terms": "<p>We allow exchanges for a new size or returns for store credit. Shoot us an email to get the process started. We are not able to offer returns for refunds at this time. We have provided detailed measurements of each product to help you make the best sizing choice. We hope you understand.</p><p>If there is an error on our part (due to wrong size or damage), please email us at <a href=\"mailto:info@bareknuckles.co\" target=\"_blank\">info@bareknuckles.co</a> and we will get it sorted out. Thank you for understanding.</p><p>BARE KNUCKLES will not accept any items that have been worn, washed, or altered for any reason. We are not responsible for normal wear and tear.</p><p>Sale items are final sale.</p>"
           },
           "blocks": {}
         }
       },
       "block_order": [
         "product-name",
-        "description",
         "add-to-cart",
         "extra_info_WaFmEf"
       ],
