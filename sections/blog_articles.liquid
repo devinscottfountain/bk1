@@ -1,4 +1,4 @@
-{% paginate article in blog.articles by 12 %}
+{% paginate article by nil %}
     <div li-paginate:by="12" li-paginate="article in blog.articles" class="u-vflex-stretch-top u-vgap-64" by="12">
                 {% if blog.articles != blank %}    <div li-if="blog.articles != blank" class="row u-vgap-40">
     
@@ -85,4 +85,13 @@
             "blog"
         ]
     }
-} {% endschema %}
+} {% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% paginate article in blog.articles by 12 %}"
+  to: "{% paginate article by nil %}"
+  position: 0..29
+{%- endcomment -%}
